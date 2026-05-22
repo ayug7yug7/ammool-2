@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Amul Kool Rose - The Ultimate Rose Refreshment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#323031",
+                    "secondary-fixed-dim": "#debfc2",
+                    "outline": "#8c7074",
+                    "tertiary-fixed-dim": "#b0c6ff",
+                    "on-tertiary-container": "#fefcff",
+                    "surface-tint": "#b22350",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#f8d8db",
+                    "secondary-fixed": "#fbdbde",
+                    "surface-container-highest": "#e7e1e2",
+                    "primary-fixed-dim": "#ffb2bf",
+                    "surface-bright": "#fef8f9",
+                    "on-surface": "#1d1b1c",
+                    "on-tertiary-fixed-variant": "#0a4297",
+                    "surface": "#fef8f9",
+                    "on-primary-fixed-variant": "#90003a",
+                    "outline-variant": "#dfbec3",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#f5eff0",
+                    "primary": "#af204e",
+                    "secondary": "#70585b",
+                    "on-surface-variant": "#584144",
+                    "on-tertiary-fixed": "#001945",
+                    "background": "#fef8f9",
+                    "surface-container-low": "#f8f2f3",
+                    "primary-fixed": "#ffd9de",
+                    "primary-container": "#d13b65",
+                    "tertiary-container": "#4972c9",
+                    "on-secondary-fixed-variant": "#574144",
+                    "on-error-container": "#93000a",
+                    "on-background": "#1d1b1c",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#2c59ae",
+                    "on-secondary-container": "#755d5f",
+                    "inverse-primary": "#ffb2bf",
+                    "on-primary-fixed": "#3f0015",
+                    "surface-variant": "#e7e1e2",
+                    "surface-container": "#f2eced",
+                    "surface-dim": "#ded9da",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#ece7e8",
+                    "tertiary-fixed": "#d9e2ff",
+                    "on-primary-container": "#fffbff",
+                    "on-secondary-fixed": "#281719"
+                },
+                borderRadius: {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+                },
+                spacing: {
+                    "base": "8px",
+                    "gutter": "24px",
+                    "section-gap-sm": "64px",
+                    "section-gap-lg": "120px",
+                    "margin-mobile": "16px",
+                    "container-max": "1280px"
+                },
+                fontFamily: {
+                    "headline": ["Plus Jakarta Sans", "sans-serif"],
+                    "body": ["Be Vietnam Pro", "sans-serif"]
+                },
+                fontSize: {
+                    "display-hero": ["64px", { lineHeight: "72px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                    "headline-lg": ["40px", { lineHeight: "48px", fontWeight: "700" }],
+                    "headline-lg-mobile": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+                    "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                    "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                    "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                    "label-bold": ["14px", { lineHeight: "20px", fontWeight: "700" }],
+                    "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }]
+                }
+            }
+        }
+    }
+</script>
+<style>
+    body { background-color: #fef8f9; }
+    html { scroll-behavior: smooth; }
+
+    .hero-gradient {
+        background: radial-gradient(circle at 70% 50%, #f8d8db 0%, #fef8f9 60%);
+    }
+    .soft-shadow {
+        box-shadow: 0 20px 40px -10px rgba(175, 32, 78, 0.08);
+    }
+    .float-animation {
+        animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease forwards;
+    }
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease forwards;
+    }
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Mobile menu overlay */
+    .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-menu.open {
+        transform: translateX(0);
+    }
+    .mobile-overlay {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+    .mobile-overlay.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Counter animation */
+    .counter-value {
+        display: inline-block;
+        min-width: 2ch;
+    }
+</style>
+</head>
+<body class="font-body text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-overlay fixed inset-0 bg-black/40 z-[60]" id="mobileOverlay"></div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu fixed top-0 right-0 w-72 h-full bg-surface z-[70] shadow-2xl flex flex-col" id="mobileMenu">
+    <div class="flex justify-between items-center p-6 border-b border-outline-variant/30">
+        <span class="text-headline-md font-headline text-primary tracking-tight">Menu</span>
+        <button id="mobileClose" class="text-on-surface-variant p-1">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+    <nav class="flex flex-col p-6 gap-2">
+        <a class="text-on-surface font-body text-body-lg py-3 px-4 rounded-xl hover:bg-secondary-container transition-colors" href="#products">Products</a>
+        <a class="text-on-surface font-body text-body-lg py-3 px-4 rounded-xl hover:bg-secondary-container transition-colors" href="#benefits">Benefits</a>
+        <a class="text-on-surface font-body text-body-lg py-3 px-4 rounded-xl hover:bg-secondary-container transition-colors" href="#nutrition">Nutrition</a>
+        <a class="text-on-surface font-body text-body-lg py-3 px-4 rounded-xl hover:bg-secondary-container transition-colors" href="#where-to-buy">Where to Buy</a>
+    </nav>
+    <div class="mt-auto p-6">
+        <button class="w-full bg-primary text-on-primary font-body font-bold text-label-bold px-6 py-4 rounded-full hover:bg-primary-container transition-all">
+            Order Now
+        </button>
+    </div>
+</div>
+
+<!-- Navbar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-sm shadow-primary/5 transition-all duration-300" id="navbar">
+    <div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+        <a href="#" class="flex items-center gap-2">
+            <span class="text-headline-md font-headline text-primary tracking-tight">Amul Kool Rose</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body font-bold text-label-bold hover:bg-primary/5 rounded-full px-4 py-2" href="#products">Products</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body font-bold text-label-bold hover:bg-primary/5 rounded-full px-4 py-2" href="#benefits">Benefits</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body font-bold text-label-bold hover:bg-primary/5 rounded-full px-4 py-2" href="#nutrition">Nutrition</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body font-bold text-label-bold hover:bg-primary/5 rounded-full px-4 py-2" href="#where-to-buy">Where to Buy</a>
+        </div>
+        <button class="bg-primary text-on-primary font-body font-bold text-label-bold px-6 py-3 rounded-full hover:bg-primary-container transition-all soft-shadow hidden md:block">
+            Order Now
+        </button>
+        <button class="md:hidden text-primary p-2" id="mobileToggle">
+            <span class="material-symbols-outlined text-[28px]">menu</span>
+        </button>
+    </div>
+</nav>
+
+<main class="pt-20 md:pt-28">
+
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center justify-center px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg overflow-hidden" id="products">
+    <div class="absolute inset-0 hero-gradient -z-10 rounded-xl md:rounded-[4rem] opacity-50"></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10 w-full py-12">
+        <div class="order-2 md:order-1 flex flex-col items-center md:items-start text-center md:text-left space-y-6 md:space-y-8">
+            <div class="inline-flex items-center gap-2 bg-secondary-container text-primary font-body font-bold text-label-bold px-4 py-2 rounded-full animate-fade-in-up" style="animation-delay: 0.1s">
+                <span class="material-symbols-outlined text-[18px]">local_florist</span>
+                Real Rose Petals
+            </div>
+            <h1 class="font-headline text-headline-lg-mobile md:text-display-hero text-primary tracking-tight leading-tight animate-fade-in-up" style="animation-delay: 0.3s">
+                The Ultimate <br class="hidden md:block"/> Rose Refreshment.
+            </h1>
+            <p class="font-body text-body-lg text-on-surface-variant max-w-md animate-fade-in-up" style="animation-delay: 0.5s">
+                Experience the nostalgic, creamy blend of pure milk and authentic rose flavour. Perfectly chilled for your daily indulgence.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-4 animate-fade-in-up" style="animation-delay: 0.7s">
+                <button class="bg-primary text-on-primary font-body font-bold text-label-bold px-8 py-4 rounded-full hover:bg-primary-container transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30 transform hover:-translate-y-1">
+                    Order Now
+                </button>
+                <button class="border-2 border-primary text-primary font-body font-bold text-label-bold px-8 py-4 rounded-full hover:bg-primary/5 transition-all">
+                    Find a Store
+                </button>
+            </div>
+        </div>
+        <div class="order-1 md:order-2 relative flex justify-center items-center">
+            <div class="absolute w-[120%] h-[120%] bg-secondary-fixed opacity-30 blur-3xl rounded-full mix-blend-multiply"></div>
+            <img alt="Amul Kool Rose bottle with splashing pink milk"
+                 class="relative z-10 w-[80%] md:w-full max-w-[500px] float-animation drop-shadow-2xl object-contain"
+                 src="images/product-hero.png"/>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Bar -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg reveal">
+    <div class="bg-white rounded-[2rem] p-8 md:p-12 soft-shadow border border-outline-variant/20">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <div class="text-display-hero font-headline text-primary mb-1"><span class="counter-value" data-target="50">0</span>+</div>
+                <div class="text-body-md text-on-surface-variant font-body">Years of Trust</div>
+            </div>
+            <div>
+                <div class="text-display-hero font-headline text-primary mb-1"><span class="counter-value" data-target="100">0</span>M+</div>
+                <div class="text-body-md text-on-surface-variant font-body">Happy Customers</div>
+            </div>
+            <div>
+                <div class="text-display-hero font-headline text-primary mb-1"><span class="counter-value" data-target="100">0</span>%</div>
+                <div class="text-body-md text-on-surface-variant font-body">Pure Milk</div>
+            </div>
+            <div>
+                <div class="text-display-hero font-headline text-primary mb-1">#<span class="counter-value" data-target="1">0</span></div>
+                <div class="text-body-md text-on-surface-variant font-body">Rose Milk in India</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section (Bento Grid) -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg" id="benefits">
+    <div class="text-center mb-16 space-y-4 reveal">
+        <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-primary">Creamy, Floral Perfection</h2>
+        <p class="font-body text-body-lg text-on-surface-variant max-w-2xl mx-auto">Crafted with care to deliver a taste that's both nostalgic and incredibly refreshing.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div class="bg-surface-bright rounded-[2rem] p-8 soft-shadow border border-outline-variant/20 hover:border-primary/30 transition-all duration-300 flex flex-col justify-between group reveal hover:-translate-y-2">
+            <div class="w-16 h-16 bg-secondary-container rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-primary text-[32px]">water_drop</span>
+            </div>
+            <div>
+                <h3 class="font-headline text-headline-md text-on-surface mb-3">Creamy Milk Base</h3>
+                <p class="font-body text-body-md text-on-surface-variant">Made with Amul's signature pure milk, providing a rich and smooth texture that coats the palate perfectly.</p>
+            </div>
+        </div>
+        <div class="bg-primary-container rounded-[2rem] p-8 soft-shadow flex flex-col justify-between text-on-primary-container md:-translate-y-4 transform reveal" style="transition-delay: 0.1s">
+            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined text-on-primary-container text-[32px]">local_florist</span>
+            </div>
+            <div>
+                <h3 class="font-headline text-headline-md mb-3">Real Rose Extract</h3>
+                <p class="font-body text-body-md opacity-90">Infused with authentic rose petal extract for a natural, delicate aroma that instantly refreshes the senses.</p>
+            </div>
+        </div>
+        <div class="bg-surface-bright rounded-[2rem] p-8 soft-shadow border border-outline-variant/20 hover:border-primary/30 transition-all duration-300 flex flex-col justify-between group reveal hover:-translate-y-2" style="transition-delay: 0.2s">
+            <div class="w-16 h-16 bg-secondary-container rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-primary text-[32px]">ac_unit</span>
+            </div>
+            <div>
+                <h3 class="font-headline text-headline-md text-on-surface mb-3">Perfectly Chilled</h3>
+                <p class="font-body text-body-md text-on-surface-variant">Best enjoyed ice-cold, offering an unparalleled cooling sensation that combats the summer heat.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nutrition Section -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg" id="nutrition">
+    <div class="bg-surface-container-low rounded-[3rem] p-8 md:p-16 soft-shadow relative overflow-hidden reveal">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-secondary-fixed rounded-bl-[100%] opacity-20 pointer-events-none"></div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-6">
+                <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-primary">Goodness in Every Sip</h2>
+                <p class="font-body text-body-lg text-on-surface-variant">Not just a treat for your taste buds, but a nourishing choice packed with the goodness of milk.</p>
+                <div class="bg-white rounded-2xl p-6 border border-outline-variant/30 mt-8">
+                    <h3 class="font-body font-bold text-label-bold text-tertiary uppercase tracking-wider mb-4 border-b border-secondary-fixed pb-2">Nutritional Information (per 100ml)</h3>
+                    <ul class="space-y-4">
+                        <li class="flex justify-between items-center font-body text-body-md">
+                            <span class="text-on-surface-variant">Energy</span>
+                            <span class="font-bold text-on-surface">88 kcal</span>
+                        </li>
+                        <li class="flex justify-between items-center font-body text-body-md border-t border-secondary-fixed/50 pt-4">
+                            <span class="text-on-surface-variant">Protein</span>
+                            <span class="font-bold text-on-surface">3.2 g</span>
+                        </li>
+                        <li class="flex justify-between items-center font-body text-body-md border-t border-secondary-fixed/50 pt-4">
+                            <span class="text-on-surface-variant">Calcium</span>
+                            <span class="font-bold text-on-surface">120 mg</span>
+                        </li>
+                        <li class="flex justify-between items-center font-body text-body-md border-t border-secondary-fixed/50 pt-4">
+                            <span class="text-on-surface-variant">Fat</span>
+                            <span class="font-bold text-on-surface">2.5 g</span>
+                        </li>
+                        <li class="flex justify-between items-center font-body text-body-md border-t border-secondary-fixed/50 pt-4">
+                            <span class="text-on-surface-variant">Carbohydrates</span>
+                            <span class="font-bold text-on-surface">12.8 g</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hidden lg:flex justify-center">
+                <div class="w-full max-w-[400px] h-[500px] rounded-2xl bg-surface-variant flex items-center justify-center overflow-hidden"
+                     style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC-46tjGBHUkPvug3WxwCdyZuyVdw-lZP5icNKuNM-CVHFxVlaWgxAQEFPV4sNmgOotD3BSRcgq7eO7MW3FyHhp_vclMOPCsbl6eM0Xlgqp3yRvlkiLXjltxhguqk9eG5nstzbs3qWMiVQxo6iad5heqyqcWH78mhp9fH52Hdl1g7QqMwF3HVH6TsNpDfyxoY8do-hRMXZuop0HMB5Zukf08KG7hunqjgF2l2THZqWX9y3fl8zucoXzhw7wt-0EGpG6azwWTIaTamc'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Lifestyle Section -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="h-[400px] md:h-[600px] rounded-[2rem] overflow-hidden bg-surface-variant soft-shadow reveal"
+             style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0TbKZHlPsBN5E_YbcVK2uS_DOOftqtGH9IMyEKA4i4x8GmRhchvsc-B39SN8_U0qKNw0gfROKwGsmSLLSVNaRzSb5o-SlonvBpILoZG7GbCYUD9F2_Hod21wglrivypF8geoToL2fv665vo2oUFsuAZvVhADC_Ycnr33H2pQvI9kefynsu_fx7Cmnf3vTjT-ocHgJZAC2jy1OC9MpQGj71ktyR95NCixZRnQaOmaCbdIF4IktkgZqiXb9K5K8XxL6LsLVTbuw11s'); background-size: cover; background-position: center;">
+        </div>
+        <div class="space-y-8 md:pl-12 reveal" style="transition-delay: 0.15s">
+            <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-primary">The Perfect Companion</h2>
+            <div class="space-y-6">
+                <div class="flex gap-4 group">
+                    <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">restaurant</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline text-headline-md text-on-surface">With Spicy Food</h4>
+                        <p class="font-body text-body-md text-on-surface-variant mt-1">The sweet, creamy profile perfectly balances out the heat of your favorite spicy dishes.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 group">
+                    <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">wb_sunny</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline text-headline-md text-on-surface">Mid-Day Refresher</h4>
+                        <p class="font-body text-body-md text-on-surface-variant mt-1">Beat the afternoon slump with a chilled, rejuvenating sip of floral sweetness.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 group">
+                    <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">celebration</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline text-headline-md text-on-surface">Festive Celebrations</h4>
+                        <p class="font-body text-body-md text-on-surface-variant mt-1">The perfect rose-flavoured treat to share during festivals and special gatherings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg">
+    <div class="text-center mb-16 space-y-4 reveal">
+        <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-primary">Loved by Millions</h2>
+        <p class="font-body text-body-lg text-on-surface-variant max-w-2xl mx-auto">Here's what our fans say about Amul Kool Rose.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-[2rem] p-8 soft-shadow border border-outline-variant/20 reveal">
+            <div class="flex items-center gap-1 mb-4">
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+            </div>
+            <p class="font-body text-body-md text-on-surface-variant mb-6">"Nothing beats Amul Kool Rose on a hot summer day. The rose flavour is so authentic and the creaminess is just perfect!"</p>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+                    <span class="font-headline text-primary font-bold text-sm">PS</span>
+                </div>
+                <div>
+                    <p class="font-body font-bold text-on-surface text-sm">Priya Sharma</p>
+                    <p class="font-body text-on-surface-variant text-xs">Mumbai</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white rounded-[2rem] p-8 soft-shadow border border-outline-variant/20 reveal" style="transition-delay: 0.1s">
+            <div class="flex items-center gap-1 mb-4">
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+            </div>
+            <p class="font-body text-body-md text-on-surface-variant mb-6">"My kids absolutely love this! It's my go-to after-school drink for them. Tasty and nutritious — what more could you ask for?"</p>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+                    <span class="font-headline text-primary font-bold text-sm">RK</span>
+                </div>
+                <div>
+                    <p class="font-body font-bold text-on-surface text-sm">Rajesh Kumar</p>
+                    <p class="font-body text-on-surface-variant text-xs">Delhi</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white rounded-[2rem] p-8 soft-shadow border border-outline-variant/20 reveal" style="transition-delay: 0.2s">
+            <div class="flex items-center gap-1 mb-4">
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+            </div>
+            <p class="font-body text-body-md text-on-surface-variant mb-6">"I pair it with biryani every single time. The rose milk cuts through the spice beautifully. A true Indian classic!"</p>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+                    <span class="font-headline text-primary font-bold text-sm">AF</span>
+                </div>
+                <div>
+                    <p class="font-body font-bold text-on-surface text-sm">Aisha Fatima</p>
+                    <p class="font-body text-on-surface-variant text-xs">Hyderabad</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Where to Buy -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg" id="where-to-buy">
+    <div class="bg-surface-bright rounded-[3rem] p-8 md:p-12 soft-shadow border border-outline-variant/20 reveal">
+        <div class="text-center mb-10">
+            <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Find a Store Near You</h2>
+            <p class="font-body text-body-lg text-on-surface-variant">Available at all major retailers and local Amul parlors.</p>
+        </div>
+        <div class="max-w-2xl mx-auto mb-8 relative">
+            <input class="w-full bg-white border-2 border-outline-variant/50 rounded-full py-4 pl-6 pr-16 font-body text-on-surface focus:border-primary focus:ring-0 transition-colors shadow-sm" placeholder="Enter your zip code or city..." type="text" id="storeSearch"/>
+            <button class="absolute right-2 top-2 bottom-2 bg-primary text-white w-12 rounded-full flex items-center justify-center hover:bg-primary-container transition-colors" id="searchBtn">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="storeResults">
+            <div class="bg-white rounded-2xl p-6 border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                <div class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-primary mt-1">store</span>
+                    <div>
+                        <h4 class="font-body font-bold text-on-surface">Amul Parlour - Connaught Place</h4>
+                        <p class="font-body text-label-sm text-on-surface-variant mt-1">Block A, Connaught Place, New Delhi</p>
+                        <p class="font-body text-label-sm text-primary mt-2 font-bold">Open Now</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                <div class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-primary mt-1">store</span>
+                    <div>
+                        <h4 class="font-body font-bold text-on-surface">Amul Parlour - Bandra</h4>
+                        <p class="font-body text-label-sm text-on-surface-variant mt-1">Hill Road, Bandra West, Mumbai</p>
+                        <p class="font-body text-label-sm text-primary mt-2 font-bold">Open Now</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-outline-variant/20 hover:border-primary/30 transition-colors">
+                <div class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-primary mt-1">store</span>
+                    <div>
+                        <h4 class="font-body font-bold text-on-surface">Amul Parlour - Koramangala</h4>
+                        <p class="font-body text-label-sm text-on-surface-variant mt-1">80 Feet Road, Koramangala, Bengaluru</p>
+                        <p class="font-body text-label-sm text-primary mt-2 font-bold">Open Now</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg reveal">
+    <div class="bg-primary rounded-[3rem] p-12 md:p-16 text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-[-50%] left-[-20%] w-[60%] h-[200%] bg-white/20 rotate-12 rounded-full"></div>
+            <div class="absolute bottom-[-50%] right-[-20%] w-[60%] h-[200%] bg-white/10 -rotate-12 rounded-full"></div>
+        </div>
+        <div class="relative z-10 space-y-6">
+            <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-white">Ready to Taste the Rose?</h2>
+            <p class="font-body text-body-lg text-white/80 max-w-xl mx-auto">Order Amul Kool Rose today and experience India's favourite rose milk drink.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                <button class="bg-white text-primary font-body font-bold text-label-bold px-8 py-4 rounded-full hover:bg-primary-fixed transition-all shadow-lg transform hover:-translate-y-1">
+                    Order Online
+                </button>
+                <button class="border-2 border-white text-white font-body font-bold text-label-bold px-8 py-4 rounded-full hover:bg-white/10 transition-all">
+                    Find a Store
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full py-section-gap-sm border-t border-outline-variant/30">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-gutter max-w-container-max mx-auto">
+        <div class="space-y-4 md:col-span-2">
+            <h4 class="font-headline text-headline-md text-primary">Amul Kool Rose</h4>
+            <p class="font-body text-body-md text-on-surface-variant max-w-sm">India's favourite rose-flavoured milk drink, made with the goodness of Amul milk and real rose extract.</p>
+            <p class="font-body text-label-sm text-on-surface-variant">&copy; 2026 Amul - The Taste of India. All rights reserved.</p>
+        </div>
+        <div class="flex flex-col space-y-3">
+            <h5 class="font-body font-bold text-label-bold text-on-surface mb-1">Quick Links</h5>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#products">Products</a>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#benefits">Benefits</a>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#nutrition">Nutrition</a>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#where-to-buy">Where to Buy</a>
+        </div>
+        <div class="flex flex-col space-y-3">
+            <h5 class="font-body font-bold text-label-bold text-on-surface mb-1">Legal</h5>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Us</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Mobile menu
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileClose = document.getElementById('mobileClose');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileOverlay = document.getElementById('mobileOverlay');
+
+function openMenu() {
+    mobileMenu.classList.add('open');
+    mobileOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+    mobileMenu.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+mobileToggle.addEventListener('click', openMenu);
+mobileClose.addEventListener('click', closeMenu);
+mobileOverlay.addEventListener('click', closeMenu);
+
+mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 10) {
+        nav.classList.add('shadow-md', 'bg-surface/95');
+        nav.classList.remove('shadow-sm', 'bg-surface/80');
+    } else {
+        nav.classList.remove('shadow-md', 'bg-surface/95');
+        nav.classList.add('shadow-sm', 'bg-surface/80');
+    }
+});
+
+// Scroll reveal
+function reveal() {
+    document.querySelectorAll('.reveal').forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 60) {
+            el.classList.add('visible');
+        }
+    });
+}
+window.addEventListener('scroll', reveal);
+window.addEventListener('load', reveal);
+
+// Counter animation
+function animateCounters() {
+    document.querySelectorAll('.counter-value').forEach(counter => {
+        const rect = counter.getBoundingClientRect();
+        if (rect.top < window.innerHeight && !counter.dataset.animated) {
+            counter.dataset.animated = 'true';
+            const target = parseInt(counter.dataset.target);
+            let current = 0;
+            const duration = 2000;
+            const step = target / (duration / 16);
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    counter.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+    });
+}
+window.addEventListener('scroll', animateCounters);
+window.addEventListener('load', animateCounters);
+
+// Active nav link highlighting
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function updateActiveNav() {
+    const scrollY = window.scrollY + 150;
+    sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === '#' + id) {
+                if (scrollY >= top && scrollY < top + height) {
+                    link.classList.add('text-primary', 'font-bold', 'border-b-2', 'border-primary');
+                } else {
+                    link.classList.remove('text-primary', 'font-bold', 'border-b-2', 'border-primary');
+                }
+            }
+        });
+    });
+}
+window.addEventListener('scroll', updateActiveNav);
+</script>
+</body>
+</html>
