@@ -175,6 +175,36 @@
         opacity: 1;
         pointer-events: auto;
     }
+    /* Product shop cards */
+    .product-card {
+        transition: all 0.3s ease;
+    }
+    .product-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px -10px rgba(175, 32, 78, 0.15);
+    }
+    .product-img-bg {
+        background: linear-gradient(135deg, #f8d8db 0%, #fef0f2 100%);
+    }
+    .qty-btn {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 2px solid #dfbec3;
+        background: white;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        color: #af204e;
+        transition: all 0.2s ease;
+    }
+    .qty-btn:hover {
+        background: #f8d8db;
+        border-color: #af204e;
+    }
     .store-card {
         transition: all 0.3s ease;
     }
@@ -219,6 +249,7 @@
         <a class="text-on-surface font-body text-body-lg py-3 px-4 rounded-xl hover:bg-secondary-container transition-colors" href="#products">Products</a>
         <a class="text-on-surface font-body text-body-lg py-3 px-4 rounded-xl hover:bg-secondary-container transition-colors" href="#benefits">Benefits</a>
         <a class="text-on-surface font-body text-body-lg py-3 px-4 rounded-xl hover:bg-secondary-container transition-colors" href="#nutrition">Nutrition</a>
+        <a class="text-on-surface font-body text-body-lg py-3 px-4 rounded-xl hover:bg-secondary-container transition-colors" href="#shop">Shop</a>
         <a class="text-on-surface font-body text-body-lg py-3 px-4 rounded-xl hover:bg-secondary-container transition-colors" href="#where-to-buy">Where to Buy</a>
     </nav>
     <div class="mt-auto p-6">
@@ -238,6 +269,7 @@
             <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body font-bold text-label-bold hover:bg-primary/5 rounded-full px-4 py-2" href="#products">Products</a>
             <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body font-bold text-label-bold hover:bg-primary/5 rounded-full px-4 py-2" href="#benefits">Benefits</a>
             <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body font-bold text-label-bold hover:bg-primary/5 rounded-full px-4 py-2" href="#nutrition">Nutrition</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body font-bold text-label-bold hover:bg-primary/5 rounded-full px-4 py-2" href="#shop">Shop</a>
             <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body font-bold text-label-bold hover:bg-primary/5 rounded-full px-4 py-2" href="#where-to-buy">Where to Buy</a>
         </div>
         <button class="bg-primary text-on-primary font-body font-bold text-label-bold px-6 py-3 rounded-full hover:bg-primary-container transition-all soft-shadow hidden md:block">
@@ -496,6 +528,182 @@
     </div>
 </section>
 
+<!-- Shop / Buy Products Section -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg" id="shop">
+    <div class="text-center mb-16 space-y-4 reveal">
+        <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-primary">Shop Our Products</h2>
+        <p class="font-body text-body-lg text-on-surface-variant max-w-2xl mx-auto">Grab your favourite Amul beverages. Pick a size, choose your quantity, and order now.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="productGrid">
+
+        <!-- Product 1 -->
+        <div class="product-card bg-white rounded-[2rem] overflow-hidden soft-shadow border border-outline-variant/20 reveal">
+            <div class="product-img-bg flex items-center justify-center py-10 px-6 relative">
+                <span class="absolute top-4 left-4 bg-primary text-on-primary font-body text-label-sm font-bold px-3 py-1 rounded-full">Bestseller</span>
+                <div class="w-24 h-40 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-[80px]">local_cafe</span>
+                </div>
+            </div>
+            <div class="p-6 space-y-3">
+                <h3 class="font-headline text-headline-md text-on-surface">Amul Kool Rose</h3>
+                <p class="font-body text-label-sm text-on-surface-variant">200ml &middot; Classic rose-flavoured milk</p>
+                <div class="flex items-center gap-2">
+                    <span class="font-headline text-headline-md text-primary">&#8377;25</span>
+                    <span class="font-body text-label-sm text-on-surface-variant line-through">&#8377;30</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                    <div class="flex items-center gap-3">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <span class="font-body font-bold text-on-surface qty-val">1</span>
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                    <button class="bg-primary text-on-primary font-body font-bold text-label-bold px-5 py-2.5 rounded-full hover:bg-primary-container transition-all text-sm" onclick="buyNow('Amul Kool Rose 200ml', 25, this)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card bg-white rounded-[2rem] overflow-hidden soft-shadow border border-outline-variant/20 reveal" style="transition-delay: 0.1s">
+            <div class="product-img-bg flex items-center justify-center py-10 px-6 relative">
+                <span class="absolute top-4 left-4 bg-tertiary text-white font-body text-label-sm font-bold px-3 py-1 rounded-full">Family Pack</span>
+                <div class="w-24 h-40 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-[80px]">water_bottle_large</span>
+                </div>
+            </div>
+            <div class="p-6 space-y-3">
+                <h3 class="font-headline text-headline-md text-on-surface">Amul Kool Rose</h3>
+                <p class="font-body text-label-sm text-on-surface-variant">500ml &middot; Large bottle for sharing</p>
+                <div class="flex items-center gap-2">
+                    <span class="font-headline text-headline-md text-primary">&#8377;50</span>
+                    <span class="font-body text-label-sm text-on-surface-variant line-through">&#8377;60</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                    <div class="flex items-center gap-3">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <span class="font-body font-bold text-on-surface qty-val">1</span>
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                    <button class="bg-primary text-on-primary font-body font-bold text-label-bold px-5 py-2.5 rounded-full hover:bg-primary-container transition-all text-sm" onclick="buyNow('Amul Kool Rose 500ml', 50, this)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card bg-white rounded-[2rem] overflow-hidden soft-shadow border border-outline-variant/20 reveal" style="transition-delay: 0.2s">
+            <div class="product-img-bg flex items-center justify-center py-10 px-6 relative">
+                <div class="w-24 h-40 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-[80px]">emoji_food_beverage</span>
+                </div>
+            </div>
+            <div class="p-6 space-y-3">
+                <h3 class="font-headline text-headline-md text-on-surface">Amul Kool Cafe</h3>
+                <p class="font-body text-label-sm text-on-surface-variant">200ml &middot; Cold coffee with milk</p>
+                <div class="flex items-center gap-2">
+                    <span class="font-headline text-headline-md text-primary">&#8377;30</span>
+                    <span class="font-body text-label-sm text-on-surface-variant line-through">&#8377;35</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                    <div class="flex items-center gap-3">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <span class="font-body font-bold text-on-surface qty-val">1</span>
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                    <button class="bg-primary text-on-primary font-body font-bold text-label-bold px-5 py-2.5 rounded-full hover:bg-primary-container transition-all text-sm" onclick="buyNow('Amul Kool Cafe 200ml', 30, this)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card bg-white rounded-[2rem] overflow-hidden soft-shadow border border-outline-variant/20 reveal" style="transition-delay: 0.1s">
+            <div class="product-img-bg flex items-center justify-center py-10 px-6 relative">
+                <div class="w-24 h-40 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-[80px]">local_drink</span>
+                </div>
+            </div>
+            <div class="p-6 space-y-3">
+                <h3 class="font-headline text-headline-md text-on-surface">Amul Kool Koko</h3>
+                <p class="font-body text-label-sm text-on-surface-variant">200ml &middot; Rich chocolate milk</p>
+                <div class="flex items-center gap-2">
+                    <span class="font-headline text-headline-md text-primary">&#8377;25</span>
+                    <span class="font-body text-label-sm text-on-surface-variant line-through">&#8377;30</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                    <div class="flex items-center gap-3">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <span class="font-body font-bold text-on-surface qty-val">1</span>
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                    <button class="bg-primary text-on-primary font-body font-bold text-label-bold px-5 py-2.5 rounded-full hover:bg-primary-container transition-all text-sm" onclick="buyNow('Amul Kool Koko 200ml', 25, this)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card bg-white rounded-[2rem] overflow-hidden soft-shadow border border-outline-variant/20 reveal" style="transition-delay: 0.15s">
+            <div class="product-img-bg flex items-center justify-center py-10 px-6 relative">
+                <span class="absolute top-4 left-4 bg-secondary text-on-secondary font-body text-label-sm font-bold px-3 py-1 rounded-full">Popular</span>
+                <div class="w-24 h-40 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-[80px]">water_drop</span>
+                </div>
+            </div>
+            <div class="p-6 space-y-3">
+                <h3 class="font-headline text-headline-md text-on-surface">Amul Lassi</h3>
+                <p class="font-body text-label-sm text-on-surface-variant">200ml &middot; Sweet creamy lassi</p>
+                <div class="flex items-center gap-2">
+                    <span class="font-headline text-headline-md text-primary">&#8377;20</span>
+                    <span class="font-body text-label-sm text-on-surface-variant line-through">&#8377;25</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                    <div class="flex items-center gap-3">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <span class="font-body font-bold text-on-surface qty-val">1</span>
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                    <button class="bg-primary text-on-primary font-body font-bold text-label-bold px-5 py-2.5 rounded-full hover:bg-primary-container transition-all text-sm" onclick="buyNow('Amul Lassi 200ml', 20, this)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card bg-white rounded-[2rem] overflow-hidden soft-shadow border border-outline-variant/20 reveal" style="transition-delay: 0.2s">
+            <div class="product-img-bg flex items-center justify-center py-10 px-6 relative">
+                <div class="w-24 h-40 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-[80px]">water_full</span>
+                </div>
+            </div>
+            <div class="p-6 space-y-3">
+                <h3 class="font-headline text-headline-md text-on-surface">Amul Buttermilk</h3>
+                <p class="font-body text-label-sm text-on-surface-variant">200ml &middot; Spiced chaas</p>
+                <div class="flex items-center gap-2">
+                    <span class="font-headline text-headline-md text-primary">&#8377;15</span>
+                    <span class="font-body text-label-sm text-on-surface-variant line-through">&#8377;20</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                    <div class="flex items-center gap-3">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <span class="font-body font-bold text-on-surface qty-val">1</span>
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                    <button class="bg-primary text-on-primary font-body font-bold text-label-bold px-5 py-2.5 rounded-full hover:bg-primary-container transition-all text-sm" onclick="buyNow('Amul Buttermilk 200ml', 15, this)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 <!-- Where to Buy -->
 <section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg" id="where-to-buy">
     <div class="bg-surface-bright rounded-[3rem] p-8 md:p-12 soft-shadow border border-outline-variant/20 reveal">
@@ -642,6 +850,7 @@
             <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#products">Products</a>
             <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#benefits">Benefits</a>
             <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#nutrition">Nutrition</a>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#shop">Shop</a>
             <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#where-to-buy">Where to Buy</a>
         </div>
         <div class="flex flex-col space-y-3">
@@ -988,6 +1197,23 @@ resetStoresBtn.addEventListener('click', () => {
     renderStoreCards(searchInput.value);
     showToast('Stores reset to defaults');
 });
+
+// Quantity & Buy Now for Shop section
+window.changeQty = function(btn, delta) {
+    const container = btn.closest('.flex');
+    const valEl = container.querySelector('.qty-val');
+    let qty = parseInt(valEl.textContent) + delta;
+    if (qty < 1) qty = 1;
+    if (qty > 99) qty = 99;
+    valEl.textContent = qty;
+};
+
+window.buyNow = function(productName, unitPrice, btn) {
+    const card = btn.closest('.product-card');
+    const qty = parseInt(card.querySelector('.qty-val').textContent);
+    const total = qty * unitPrice;
+    showToast(`Added ${qty}x ${productName} — ₹${total} to cart`);
+};
 
 // Initial render
 renderStoreCards('');
