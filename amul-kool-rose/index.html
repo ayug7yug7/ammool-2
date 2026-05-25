@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Amul Kool Rose - The Ultimate Rose Refreshment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#323031",
+                    "secondary-fixed-dim": "#debfc2",
+                    "outline": "#8c7074",
+                    "tertiary-fixed-dim": "#b0c6ff",
+                    "on-tertiary-container": "#fefcff",
+                    "surface-tint": "#b22350",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#f8d8db",
+                    "secondary-fixed": "#fbdbde",
+                    "surface-container-highest": "#e7e1e2",
+                    "primary-fixed-dim": "#ffb2bf",
+                    "surface-bright": "#fef8f9",
+                    "on-surface": "#1d1b1c",
+                    "on-tertiary-fixed-variant": "#0a4297",
+                    "surface": "#fef8f9",
+                    "on-primary-fixed-variant": "#90003a",
+                    "outline-variant": "#dfbec3",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#f5eff0",
+                    "primary": "#af204e",
+                    "secondary": "#70585b",
+                    "on-surface-variant": "#584144",
+                    "on-tertiary-fixed": "#001945",
+                    "background": "#fef8f9",
+                    "surface-container-low": "#f8f2f3",
+                    "primary-fixed": "#ffd9de",
+                    "primary-container": "#d13b65",
+                    "tertiary-container": "#4972c9",
+                    "on-secondary-fixed-variant": "#574144",
+                    "on-error-container": "#93000a",
+                    "on-background": "#1d1b1c",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#2c59ae",
+                    "on-secondary-container": "#755d5f",
+                    "inverse-primary": "#ffb2bf",
+                    "on-primary-fixed": "#3f0015",
+                    "surface-variant": "#e7e1e2",
+                    "surface-container": "#f2eced",
+                    "surface-dim": "#ded9da",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#ece7e8",
+                    "tertiary-fixed": "#d9e2ff",
+                    "on-primary-container": "#fffbff",
+                    "on-secondary-fixed": "#281719"
+                },
+                borderRadius: {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+                },
+                spacing: {
+                    "base": "8px",
+                    "gutter": "24px",
+                    "section-gap-sm": "64px",
+                    "section-gap-lg": "120px",
+                    "margin-mobile": "16px",
+                    "container-max": "1280px"
+                },
+                fontFamily: {
+                    "headline": ["Plus Jakarta Sans", "sans-serif"],
+                    "body": ["Be Vietnam Pro", "sans-serif"]
+                },
+                fontSize: {
+                    "display-hero": ["64px", { lineHeight: "72px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                    "headline-lg": ["40px", { lineHeight: "48px", fontWeight: "700" }],
+                    "headline-lg-mobile": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+                    "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                    "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                    "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                    "label-bold": ["14px", { lineHeight: "20px", fontWeight: "700" }],
+                    "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }]
+                }
+            }
+        }
+    }
+</script>
+<style>
+    body { background-color: #fef8f9; }
+    html { scroll-behavior: smooth; }
+
+    .hero-gradient {
+        background: radial-gradient(circle at 70% 50%, #f8d8db 0%, #fef8f9 60%);
+    }
+    .soft-shadow {
+        box-shadow: 0 20px 40px -10px rgba(175, 32, 78, 0.08);
+    }
+    .float-animation {
+        animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+        0% { transform: translateY(0px) rotate(0deg); }
+        25% { transform: translateY(-12px) rotate(1deg); }
+        50% { transform: translateY(-20px) rotate(0deg); }
+        75% { transform: translateY(-12px) rotate(-1deg); }
+        100% { transform: translateY(0px) rotate(0deg); }
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    @keyframes slideInLeft {
+        from { opacity: 0; transform: translateX(-60px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+        from { opacity: 0; transform: translateX(60px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scaleIn {
+        from { opacity: 0; transform: scale(0.85); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes shimmer {
+        0% { background-position: -200% center; }
+        100% { background-position: 200% center; }
+    }
+    @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 20px rgba(175, 32, 78, 0.15); }
+        50% { box-shadow: 0 0 40px rgba(175, 32, 78, 0.3); }
+    }
+    @keyframes bounce-subtle {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+    }
+    @keyframes ripple {
+        to { transform: scale(4); opacity: 0; }
+    }
+    @keyframes petalFloat {
+        0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0; }
+        10% { opacity: 0.6; }
+        90% { opacity: 0.6; }
+        100% { transform: translateY(-100vh) rotate(360deg) scale(0.5); opacity: 0; }
+    }
+    @keyframes gradient-text {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    @keyframes counter-pop {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+        100% { transform: scale(1); }
+    }
+
+    .animate-fade-in-up {
+        animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease forwards;
+    }
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .reveal-left {
+        opacity: 0;
+        transform: translateX(-60px);
+        transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .reveal-right {
+        opacity: 0;
+        transform: translateX(60px);
+        transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .reveal-scale {
+        opacity: 0;
+        transform: scale(0.85);
+        transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal-scale.visible {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Shimmer heading effect */
+    .shimmer-text {
+        background: linear-gradient(90deg, #af204e 0%, #d13b65 25%, #ff6b8a 50%, #d13b65 75%, #af204e 100%);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: shimmer 4s linear infinite;
+    }
+
+    /* Floating petals */
+    .petal {
+        position: fixed;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0;
+        animation: petalFloat linear infinite;
+    }
+
+    /* Button ripple */
+    .btn-ripple {
+        position: relative;
+        overflow: hidden;
+    }
+    .btn-ripple .ripple-circle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.4);
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+        pointer-events: none;
+    }
+
+    /* Navbar link underline animation */
+    .nav-link {
+        position: relative;
+    }
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: #af204e;
+        border-radius: 2px;
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+    .nav-link:hover::after {
+        width: 60%;
+        left: 20%;
+    }
+
+    /* Hero glow */
+    .hero-glow {
+        animation: pulse-glow 3s ease-in-out infinite;
+        border-radius: 50%;
+    }
+
+    /* Stagger children animation */
+    .stagger-children > * {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .stagger-children.visible > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(3) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(4) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(5) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(6) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+
+    /* Counter pop on complete */
+    .counter-pop {
+        animation: counter-pop 0.4s ease;
+    }
+
+    /* Tilt card effect */
+    .tilt-card {
+        transition: transform 0.3s ease;
+    }
+
+    /* Image hover zoom */
+    .img-zoom {
+        overflow: hidden;
+    }
+    .img-zoom img {
+        transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .img-zoom:hover img {
+        transform: scale(1.08);
+    }
+
+    /* Parallax-ready */
+    .parallax-slow {
+        transition: transform 0.1s linear;
+    }
+
+    /* Mobile menu overlay */
+    .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-menu.open {
+        transform: translateX(0);
+    }
+    .mobile-overlay {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+    .mobile-overlay.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Counter animation */
+    .counter-value {
+        display: inline-block;
+        min-width: 2ch;
+    }
+
+    /* Admin panel */
+    .admin-panel {
+        display: none;
+    }
+    .admin-panel.open {
+        display: block;
+    }
+    .admin-overlay {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+    .admin-overlay.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    /* Product shop cards */
+    .product-card {
+        transition: all 0.3s ease;
+    }
+    .product-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px -10px rgba(175, 32, 78, 0.15);
+    }
+    .product-img-bg {
+        background: linear-gradient(135deg, #f8d8db 0%, #fef0f2 100%);
+    }
+    .qty-btn {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 2px solid #dfbec3;
+        background: white;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        color: #af204e;
+        transition: all 0.2s ease;
+    }
+    .qty-btn:hover {
+        background: #f8d8db;
+        border-color: #af204e;
+    }
+    .store-card {
+        transition: all 0.3s ease;
+    }
+    .store-card:hover {
+        transform: translateY(-2px);
+    }
+    .badge-open {
+        color: #16a34a;
+    }
+    .badge-closed {
+        color: #dc2626;
+    }
+    .toast {
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        opacity: 0;
+        transition: all 0.4s ease;
+        z-index: 100;
+    }
+    .toast.show {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+
+    /* Login modal */
+    .login-overlay {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+    .login-overlay.open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .login-modal {
+        transform: scale(0.9) translateY(20px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .login-modal.open {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .otp-inputs {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+    }
+    .otp-inputs input {
+        width: 44px;
+        height: 52px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 700;
+        border: 2px solid #dfbec3;
+        border-radius: 12px;
+        background: white;
+        color: #1d1b1c;
+        transition: border-color 0.2s ease;
+    }
+    .otp-inputs input:focus {
+        border-color: #af204e;
+        outline: none;
+    }
+    .login-step { display: none; }
+    .login-step.active { display: block; }
+</style>
+</head>
+<body class="font-body text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-overlay fixed inset-0 bg-black/40 z-[60]" id="mobileOverlay"></div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu fixed top-0 right-0 w-72 h-full bg-surface z-[70] shadow-2xl flex flex-col" id="mobileMenu">
+    <div class="flex justify-between items-center p-6 border-b border-outline-variant/30">
+        <span class="text-headline-md font-headline text-primary tracking-tight">Menu</span>
+        <button id="mobileClose" class="text-on-surface-variant p-1">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+    <nav class="flex flex-col p-6 gap-2">
+        <a class="text-on-surface font-body text-body-lg py-3 px-4 rounded-xl hover:bg-secondary-container transition-colors" href="#products">Products</a>
+        <a class="text-on-surface font-body text-body-lg py-3 px-4 rounded-xl hover:bg-secondary-container transition-colors" href="#benefits">Benefits</a>
+        <a class="text-on-surface font-body text-body-lg py-3 px-4 rounded-xl hover:bg-secondary-container transition-colors" href="#nutrition">Nutrition</a>
+        <a class="text-on-surface font-body text-body-lg py-3 px-4 rounded-xl hover:bg-secondary-container transition-colors" href="#shop">Shop</a>
+        <a class="text-on-surface font-body text-body-lg py-3 px-4 rounded-xl hover:bg-secondary-container transition-colors" href="#where-to-buy">Where to Buy</a>
+    </nav>
+    <div class="mt-auto p-6 space-y-3">
+        <button onclick="openLoginModal(); closeMenu();" id="mobileLoginBtn" class="w-full flex items-center justify-center gap-2 text-primary font-body font-bold text-label-bold px-6 py-4 rounded-full border-2 border-primary hover:bg-primary/5 transition-all">
+            <span class="material-symbols-outlined text-[20px]">person</span>
+            <span id="mobileLoginText">Login</span>
+        </button>
+        <button class="w-full bg-primary text-on-primary font-body font-bold text-label-bold px-6 py-4 rounded-full hover:bg-primary-container transition-all">
+            Order Now
+        </button>
+    </div>
+</div>
+
+<!-- Navbar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-sm shadow-primary/5 transition-all duration-300" id="navbar">
+    <div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+        <a href="#" class="flex items-center gap-2">
+            <span class="text-headline-md font-headline text-primary tracking-tight">Amul Kool Rose</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body font-bold text-label-bold hover:bg-primary/5 rounded-full px-4 py-2" href="#products">Products</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body font-bold text-label-bold hover:bg-primary/5 rounded-full px-4 py-2" href="#benefits">Benefits</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body font-bold text-label-bold hover:bg-primary/5 rounded-full px-4 py-2" href="#nutrition">Nutrition</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body font-bold text-label-bold hover:bg-primary/5 rounded-full px-4 py-2" href="#shop">Shop</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors font-body font-bold text-label-bold hover:bg-primary/5 rounded-full px-4 py-2" href="#where-to-buy">Where to Buy</a>
+        </div>
+        <div class="hidden md:flex items-center gap-3">
+            <button onclick="openLoginModal()" id="navLoginBtn" class="flex items-center gap-2 text-primary font-body font-bold text-label-bold px-5 py-3 rounded-full border-2 border-primary hover:bg-primary/5 transition-all">
+                <span class="material-symbols-outlined text-[20px]">person</span>
+                <span id="navLoginText">Login</span>
+            </button>
+            <button class="bg-primary text-on-primary font-body font-bold text-label-bold px-6 py-3 rounded-full hover:bg-primary-container transition-all soft-shadow">
+                Order Now
+            </button>
+        </div>
+        <button class="md:hidden text-primary p-2" id="mobileToggle">
+            <span class="material-symbols-outlined text-[28px]">menu</span>
+        </button>
+    </div>
+</nav>
+
+<main class="pt-20 md:pt-28">
+
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center justify-center px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg overflow-hidden" id="products">
+    <!-- Floating petals container -->
+    <div id="petalsContainer" class="absolute inset-0 pointer-events-none z-0 overflow-hidden"></div>
+    <div class="absolute inset-0 hero-gradient -z-10 rounded-xl md:rounded-[4rem] opacity-50"></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10 w-full py-12">
+        <div class="order-2 md:order-1 flex flex-col items-center md:items-start text-center md:text-left space-y-6 md:space-y-8">
+            <div class="inline-flex items-center gap-2 bg-secondary-container text-primary font-body font-bold text-label-bold px-4 py-2 rounded-full animate-fade-in-up" style="animation-delay: 0.1s">
+                <span class="material-symbols-outlined text-[18px]">local_florist</span>
+                Real Rose Petals
+            </div>
+            <h1 class="font-headline text-headline-lg-mobile md:text-display-hero tracking-tight leading-tight animate-fade-in-up shimmer-text" style="animation-delay: 0.3s">
+                The Ultimate <br class="hidden md:block"/> Rose Refreshment.
+            </h1>
+            <p class="font-body text-body-lg text-on-surface-variant max-w-md animate-fade-in-up" style="animation-delay: 0.5s">
+                Experience the nostalgic, creamy blend of pure milk and authentic rose flavour. Perfectly chilled for your daily indulgence.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-4 animate-fade-in-up" style="animation-delay: 0.7s">
+                <button class="btn-ripple bg-primary text-on-primary font-body font-bold text-label-bold px-8 py-4 rounded-full hover:bg-primary-container transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30 transform hover:-translate-y-1">
+                    Order Now
+                </button>
+                <button class="border-2 border-primary text-primary font-body font-bold text-label-bold px-8 py-4 rounded-full hover:bg-primary/5 transition-all">
+                    Find a Store
+                </button>
+            </div>
+        </div>
+        <div class="order-1 md:order-2 relative flex justify-center items-center">
+            <div class="absolute w-[120%] h-[120%] bg-secondary-fixed opacity-30 blur-3xl rounded-full mix-blend-multiply hero-glow"></div>
+            <img alt="Amul Kool Rose bottle with splashing pink milk"
+                 class="relative z-10 w-[80%] md:w-full max-w-[500px] float-animation drop-shadow-2xl object-contain"
+                 src="images/product-hero.png"/>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Bar -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg reveal-scale">
+    <div class="bg-white rounded-[2rem] p-8 md:p-12 soft-shadow border border-outline-variant/20">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center stagger-children">
+            <div>
+                <div class="text-display-hero font-headline text-primary mb-1"><span class="counter-value" data-target="50">0</span>+</div>
+                <div class="text-body-md text-on-surface-variant font-body">Years of Trust</div>
+            </div>
+            <div>
+                <div class="text-display-hero font-headline text-primary mb-1"><span class="counter-value" data-target="100">0</span>M+</div>
+                <div class="text-body-md text-on-surface-variant font-body">Happy Customers</div>
+            </div>
+            <div>
+                <div class="text-display-hero font-headline text-primary mb-1"><span class="counter-value" data-target="100">0</span>%</div>
+                <div class="text-body-md text-on-surface-variant font-body">Pure Milk</div>
+            </div>
+            <div>
+                <div class="text-display-hero font-headline text-primary mb-1">#<span class="counter-value" data-target="1">0</span></div>
+                <div class="text-body-md text-on-surface-variant font-body">Rose Milk in India</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section (Bento Grid) -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg" id="benefits">
+    <div class="text-center mb-16 space-y-4 reveal">
+        <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg shimmer-text">Creamy, Floral Perfection</h2>
+        <p class="font-body text-body-lg text-on-surface-variant max-w-2xl mx-auto">Crafted with care to deliver a taste that's both nostalgic and incredibly refreshing.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 stagger-children">
+        <div class="bg-surface-bright rounded-[2rem] p-8 soft-shadow border border-outline-variant/20 hover:border-primary/30 transition-all duration-300 flex flex-col justify-between group reveal tilt-card hover:-translate-y-2">
+            <div class="w-16 h-16 bg-secondary-container rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-primary text-[32px]">water_drop</span>
+            </div>
+            <div>
+                <h3 class="font-headline text-headline-md text-on-surface mb-3">Creamy Milk Base</h3>
+                <p class="font-body text-body-md text-on-surface-variant">Made with Amul's signature pure milk, providing a rich and smooth texture that coats the palate perfectly.</p>
+            </div>
+        </div>
+        <div class="bg-primary-container rounded-[2rem] p-8 soft-shadow flex flex-col justify-between text-on-primary-container md:-translate-y-4 transform reveal tilt-card" style="transition-delay: 0.1s">
+            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined text-on-primary-container text-[32px]">local_florist</span>
+            </div>
+            <div>
+                <h3 class="font-headline text-headline-md mb-3">Real Rose Extract</h3>
+                <p class="font-body text-body-md opacity-90">Infused with authentic rose petal extract for a natural, delicate aroma that instantly refreshes the senses.</p>
+            </div>
+        </div>
+        <div class="bg-surface-bright rounded-[2rem] p-8 soft-shadow border border-outline-variant/20 hover:border-primary/30 transition-all duration-300 flex flex-col justify-between group reveal tilt-card hover:-translate-y-2" style="transition-delay: 0.2s">
+            <div class="w-16 h-16 bg-secondary-container rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-primary text-[32px]">ac_unit</span>
+            </div>
+            <div>
+                <h3 class="font-headline text-headline-md text-on-surface mb-3">Perfectly Chilled</h3>
+                <p class="font-body text-body-md text-on-surface-variant">Best enjoyed ice-cold, offering an unparalleled cooling sensation that combats the summer heat.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nutrition Section -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg" id="nutrition">
+    <div class="bg-surface-container-low rounded-[3rem] p-8 md:p-16 soft-shadow relative overflow-hidden reveal-scale">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-secondary-fixed rounded-bl-[100%] opacity-20 pointer-events-none"></div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-6">
+                <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg shimmer-text">Goodness in Every Sip</h2>
+                <p class="font-body text-body-lg text-on-surface-variant">Not just a treat for your taste buds, but a nourishing choice packed with the goodness of milk.</p>
+                <div class="bg-white rounded-2xl p-6 border border-outline-variant/30 mt-8">
+                    <h3 class="font-body font-bold text-label-bold text-tertiary uppercase tracking-wider mb-4 border-b border-secondary-fixed pb-2">Nutritional Information (per 100ml)</h3>
+                    <ul class="space-y-4">
+                        <li class="flex justify-between items-center font-body text-body-md">
+                            <span class="text-on-surface-variant">Energy</span>
+                            <span class="font-bold text-on-surface">88 kcal</span>
+                        </li>
+                        <li class="flex justify-between items-center font-body text-body-md border-t border-secondary-fixed/50 pt-4">
+                            <span class="text-on-surface-variant">Protein</span>
+                            <span class="font-bold text-on-surface">3.2 g</span>
+                        </li>
+                        <li class="flex justify-between items-center font-body text-body-md border-t border-secondary-fixed/50 pt-4">
+                            <span class="text-on-surface-variant">Calcium</span>
+                            <span class="font-bold text-on-surface">120 mg</span>
+                        </li>
+                        <li class="flex justify-between items-center font-body text-body-md border-t border-secondary-fixed/50 pt-4">
+                            <span class="text-on-surface-variant">Fat</span>
+                            <span class="font-bold text-on-surface">2.5 g</span>
+                        </li>
+                        <li class="flex justify-between items-center font-body text-body-md border-t border-secondary-fixed/50 pt-4">
+                            <span class="text-on-surface-variant">Carbohydrates</span>
+                            <span class="font-bold text-on-surface">12.8 g</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hidden lg:flex justify-center">
+                <div class="w-full max-w-[400px] h-[500px] rounded-2xl bg-surface-variant flex items-center justify-center overflow-hidden"
+                     style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC-46tjGBHUkPvug3WxwCdyZuyVdw-lZP5icNKuNM-CVHFxVlaWgxAQEFPV4sNmgOotD3BSRcgq7eO7MW3FyHhp_vclMOPCsbl6eM0Xlgqp3yRvlkiLXjltxhguqk9eG5nstzbs3qWMiVQxo6iad5heqyqcWH78mhp9fH52Hdl1g7QqMwF3HVH6TsNpDfyxoY8do-hRMXZuop0HMB5Zukf08KG7hunqjgF2l2THZqWX9y3fl8zucoXzhw7wt-0EGpG6azwWTIaTamc'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Lifestyle Section -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="h-[400px] md:h-[600px] rounded-[2rem] overflow-hidden bg-surface-variant soft-shadow reveal"
+             style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0TbKZHlPsBN5E_YbcVK2uS_DOOftqtGH9IMyEKA4i4x8GmRhchvsc-B39SN8_U0qKNw0gfROKwGsmSLLSVNaRzSb5o-SlonvBpILoZG7GbCYUD9F2_Hod21wglrivypF8geoToL2fv665vo2oUFsuAZvVhADC_Ycnr33H2pQvI9kefynsu_fx7Cmnf3vTjT-ocHgJZAC2jy1OC9MpQGj71ktyR95NCixZRnQaOmaCbdIF4IktkgZqiXb9K5K8XxL6LsLVTbuw11s'); background-size: cover; background-position: center;">
+        </div>
+        <div class="space-y-8 md:pl-12 reveal" style="transition-delay: 0.15s">
+            <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-primary">The Perfect Companion</h2>
+            <div class="space-y-6">
+                <div class="flex gap-4 group">
+                    <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">restaurant</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline text-headline-md text-on-surface">With Spicy Food</h4>
+                        <p class="font-body text-body-md text-on-surface-variant mt-1">The sweet, creamy profile perfectly balances out the heat of your favorite spicy dishes.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 group">
+                    <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">wb_sunny</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline text-headline-md text-on-surface">Mid-Day Refresher</h4>
+                        <p class="font-body text-body-md text-on-surface-variant mt-1">Beat the afternoon slump with a chilled, rejuvenating sip of floral sweetness.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 group">
+                    <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">celebration</span>
+                    </div>
+                    <div>
+                        <h4 class="font-headline text-headline-md text-on-surface">Festive Celebrations</h4>
+                        <p class="font-body text-body-md text-on-surface-variant mt-1">The perfect rose-flavoured treat to share during festivals and special gatherings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg">
+    <div class="text-center mb-16 space-y-4 reveal">
+        <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg shimmer-text">Loved by Millions</h2>
+        <p class="font-body text-body-lg text-on-surface-variant max-w-2xl mx-auto">Here's what our fans say about Amul Kool Rose.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
+        <div class="bg-white rounded-[2rem] p-8 soft-shadow border border-outline-variant/20 reveal tilt-card">
+            <div class="flex items-center gap-1 mb-4">
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+            </div>
+            <p class="font-body text-body-md text-on-surface-variant mb-6">"Nothing beats Amul Kool Rose on a hot summer day. The rose flavour is so authentic and the creaminess is just perfect!"</p>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+                    <span class="font-headline text-primary font-bold text-sm">PS</span>
+                </div>
+                <div>
+                    <p class="font-body font-bold text-on-surface text-sm">Priya Sharma</p>
+                    <p class="font-body text-on-surface-variant text-xs">Mumbai</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white rounded-[2rem] p-8 soft-shadow border border-outline-variant/20 reveal tilt-card" style="transition-delay: 0.1s">
+            <div class="flex items-center gap-1 mb-4">
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+            </div>
+            <p class="font-body text-body-md text-on-surface-variant mb-6">"My kids absolutely love this! It's my go-to after-school drink for them. Tasty and nutritious — what more could you ask for?"</p>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+                    <span class="font-headline text-primary font-bold text-sm">RK</span>
+                </div>
+                <div>
+                    <p class="font-body font-bold text-on-surface text-sm">Rajesh Kumar</p>
+                    <p class="font-body text-on-surface-variant text-xs">Delhi</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white rounded-[2rem] p-8 soft-shadow border border-outline-variant/20 reveal tilt-card" style="transition-delay: 0.2s">
+            <div class="flex items-center gap-1 mb-4">
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+                <span class="material-symbols-outlined text-amber-400 text-[20px]" style="font-variation-settings: 'FILL' 1">star</span>
+            </div>
+            <p class="font-body text-body-md text-on-surface-variant mb-6">"I pair it with biryani every single time. The rose milk cuts through the spice beautifully. A true Indian classic!"</p>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+                    <span class="font-headline text-primary font-bold text-sm">AF</span>
+                </div>
+                <div>
+                    <p class="font-body font-bold text-on-surface text-sm">Aisha Fatima</p>
+                    <p class="font-body text-on-surface-variant text-xs">Hyderabad</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Shop / Buy Products Section -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg" id="shop">
+    <div class="text-center mb-16 space-y-4 reveal">
+        <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg shimmer-text">Shop Our Products</h2>
+        <p class="font-body text-body-lg text-on-surface-variant max-w-2xl mx-auto">Grab your favourite Amul beverages. Pick a size, choose your quantity, and order now.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 stagger-children" id="productGrid">
+
+        <!-- Product 1 -->
+        <div class="product-card bg-white rounded-[2rem] overflow-hidden soft-shadow border border-outline-variant/20 reveal tilt-card">
+            <div class="product-img-bg flex items-center justify-center py-10 px-6 relative img-zoom">
+                <span class="absolute top-4 left-4 bg-primary text-on-primary font-body text-label-sm font-bold px-3 py-1 rounded-full">Bestseller</span>
+                <div class="w-32 h-44 flex items-center justify-center">
+                    <img src="images/kool-rose-product.jpg" alt="Amul Kool Rose" class="w-full h-full object-cover rounded-xl shadow-md">
+                </div>
+            </div>
+            <div class="p-6 space-y-3">
+                <h3 class="font-headline text-headline-md text-on-surface">Amul Kool Rose</h3>
+                <p class="font-body text-label-sm text-on-surface-variant">200ml &middot; Classic rose-flavoured milk</p>
+                <div class="flex items-center gap-2">
+                    <span class="font-headline text-headline-md text-primary">&#8377;25</span>
+                    <span class="font-body text-label-sm text-on-surface-variant line-through">&#8377;30</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                    <div class="flex items-center gap-3">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <span class="font-body font-bold text-on-surface qty-val">1</span>
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                    <button class="btn-ripple bg-primary text-on-primary font-body font-bold text-label-bold px-5 py-2.5 rounded-full hover:bg-primary-container transition-all text-sm" onclick="buyNow('Amul Kool Rose 200ml', 25, this)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card bg-white rounded-[2rem] overflow-hidden soft-shadow border border-outline-variant/20 reveal tilt-card" style="transition-delay: 0.1s">
+            <div class="product-img-bg flex items-center justify-center py-10 px-6 relative img-zoom">
+                <span class="absolute top-4 left-4 bg-tertiary text-white font-body text-label-sm font-bold px-3 py-1 rounded-full">Family Pack</span>
+                <div class="w-32 h-44 flex items-center justify-center">
+                    <img src="images/kool-rose-product.jpg" alt="Amul Kool Rose 500ml" class="w-full h-full object-cover rounded-xl shadow-md">
+                </div>
+            </div>
+            <div class="p-6 space-y-3">
+                <h3 class="font-headline text-headline-md text-on-surface">Amul Kool Rose</h3>
+                <p class="font-body text-label-sm text-on-surface-variant">500ml &middot; Large bottle for sharing</p>
+                <div class="flex items-center gap-2">
+                    <span class="font-headline text-headline-md text-primary">&#8377;50</span>
+                    <span class="font-body text-label-sm text-on-surface-variant line-through">&#8377;60</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                    <div class="flex items-center gap-3">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <span class="font-body font-bold text-on-surface qty-val">1</span>
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                    <button class="btn-ripple bg-primary text-on-primary font-body font-bold text-label-bold px-5 py-2.5 rounded-full hover:bg-primary-container transition-all text-sm" onclick="buyNow('Amul Kool Rose 500ml', 50, this)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card bg-white rounded-[2rem] overflow-hidden soft-shadow border border-outline-variant/20 reveal" style="transition-delay: 0.2s">
+            <div class="product-img-bg flex items-center justify-center py-10 px-6 relative">
+                <div class="w-24 h-40 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-[80px]">emoji_food_beverage</span>
+                </div>
+            </div>
+            <div class="p-6 space-y-3">
+                <h3 class="font-headline text-headline-md text-on-surface">Amul Kool Cafe</h3>
+                <p class="font-body text-label-sm text-on-surface-variant">200ml &middot; Cold coffee with milk</p>
+                <div class="flex items-center gap-2">
+                    <span class="font-headline text-headline-md text-primary">&#8377;30</span>
+                    <span class="font-body text-label-sm text-on-surface-variant line-through">&#8377;35</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                    <div class="flex items-center gap-3">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <span class="font-body font-bold text-on-surface qty-val">1</span>
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                    <button class="btn-ripple bg-primary text-on-primary font-body font-bold text-label-bold px-5 py-2.5 rounded-full hover:bg-primary-container transition-all text-sm" onclick="buyNow('Amul Kool Cafe 200ml', 30, this)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card bg-white rounded-[2rem] overflow-hidden soft-shadow border border-outline-variant/20 reveal" style="transition-delay: 0.1s">
+            <div class="product-img-bg flex items-center justify-center py-10 px-6 relative">
+                <div class="w-24 h-40 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-[80px]">local_drink</span>
+                </div>
+            </div>
+            <div class="p-6 space-y-3">
+                <h3 class="font-headline text-headline-md text-on-surface">Amul Kool Koko</h3>
+                <p class="font-body text-label-sm text-on-surface-variant">200ml &middot; Rich chocolate milk</p>
+                <div class="flex items-center gap-2">
+                    <span class="font-headline text-headline-md text-primary">&#8377;25</span>
+                    <span class="font-body text-label-sm text-on-surface-variant line-through">&#8377;30</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                    <div class="flex items-center gap-3">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <span class="font-body font-bold text-on-surface qty-val">1</span>
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                    <button class="btn-ripple bg-primary text-on-primary font-body font-bold text-label-bold px-5 py-2.5 rounded-full hover:bg-primary-container transition-all text-sm" onclick="buyNow('Amul Kool Koko 200ml', 25, this)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card bg-white rounded-[2rem] overflow-hidden soft-shadow border border-outline-variant/20 reveal" style="transition-delay: 0.15s">
+            <div class="product-img-bg flex items-center justify-center py-10 px-6 relative">
+                <span class="absolute top-4 left-4 bg-secondary text-on-secondary font-body text-label-sm font-bold px-3 py-1 rounded-full">Popular</span>
+                <div class="w-24 h-40 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-[80px]">water_drop</span>
+                </div>
+            </div>
+            <div class="p-6 space-y-3">
+                <h3 class="font-headline text-headline-md text-on-surface">Amul Lassi</h3>
+                <p class="font-body text-label-sm text-on-surface-variant">200ml &middot; Sweet creamy lassi</p>
+                <div class="flex items-center gap-2">
+                    <span class="font-headline text-headline-md text-primary">&#8377;20</span>
+                    <span class="font-body text-label-sm text-on-surface-variant line-through">&#8377;25</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                    <div class="flex items-center gap-3">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <span class="font-body font-bold text-on-surface qty-val">1</span>
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                    <button class="btn-ripple bg-primary text-on-primary font-body font-bold text-label-bold px-5 py-2.5 rounded-full hover:bg-primary-container transition-all text-sm" onclick="buyNow('Amul Lassi 200ml', 20, this)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card bg-white rounded-[2rem] overflow-hidden soft-shadow border border-outline-variant/20 reveal" style="transition-delay: 0.2s">
+            <div class="product-img-bg flex items-center justify-center py-10 px-6 relative">
+                <div class="w-24 h-40 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-[80px]">water_full</span>
+                </div>
+            </div>
+            <div class="p-6 space-y-3">
+                <h3 class="font-headline text-headline-md text-on-surface">Amul Buttermilk</h3>
+                <p class="font-body text-label-sm text-on-surface-variant">200ml &middot; Spiced chaas</p>
+                <div class="flex items-center gap-2">
+                    <span class="font-headline text-headline-md text-primary">&#8377;15</span>
+                    <span class="font-body text-label-sm text-on-surface-variant line-through">&#8377;20</span>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                    <div class="flex items-center gap-3">
+                        <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                        <span class="font-body font-bold text-on-surface qty-val">1</span>
+                        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+                    </div>
+                    <button class="btn-ripple bg-primary text-on-primary font-body font-bold text-label-bold px-5 py-2.5 rounded-full hover:bg-primary-container transition-all text-sm" onclick="buyNow('Amul Buttermilk 200ml', 15, this)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Where to Buy -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg" id="where-to-buy">
+    <div class="bg-surface-bright rounded-[3rem] p-8 md:p-12 soft-shadow border border-outline-variant/20 reveal">
+        <div class="text-center mb-10">
+            <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg shimmer-text mb-4">Find a Store Near You</h2>
+            <p class="font-body text-body-lg text-on-surface-variant">Available at all major retailers and local Amul parlors.</p>
+        </div>
+        <div class="max-w-2xl mx-auto mb-8 relative">
+            <input class="w-full bg-white border-2 border-outline-variant/50 rounded-full py-4 pl-6 pr-16 font-body text-on-surface focus:border-primary focus:ring-0 transition-colors shadow-sm" placeholder="Enter your zip code or city..." type="text" id="storeSearch"/>
+            <button class="absolute right-2 top-2 bottom-2 bg-primary text-white w-12 rounded-full flex items-center justify-center hover:bg-primary-container transition-colors" id="searchBtn">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="storeResults">
+            <!-- Stores loaded dynamically from localStorage -->
+        </div>
+        <p class="text-center mt-4 font-body text-label-sm text-on-surface-variant" id="storeCount"></p>
+        <div class="text-center mt-6">
+            <button class="text-primary font-body text-label-sm font-bold hover:underline" id="openAdmin">
+                <span class="material-symbols-outlined text-[16px] align-middle">settings</span>
+                Manage Stores
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap-lg reveal-scale">
+    <div class="bg-primary rounded-[3rem] p-12 md:p-16 text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-[-50%] left-[-20%] w-[60%] h-[200%] bg-white/20 rotate-12 rounded-full"></div>
+            <div class="absolute bottom-[-50%] right-[-20%] w-[60%] h-[200%] bg-white/10 -rotate-12 rounded-full"></div>
+        </div>
+        <div class="relative z-10 space-y-6">
+            <h2 class="font-headline text-headline-lg-mobile md:text-headline-lg text-white">Ready to Taste the Rose?</h2>
+            <p class="font-body text-body-lg text-white/80 max-w-xl mx-auto">Order Amul Kool Rose today and experience India's favourite rose milk drink.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                <button class="btn-ripple bg-white text-primary font-body font-bold text-label-bold px-8 py-4 rounded-full hover:bg-primary-fixed transition-all shadow-lg transform hover:-translate-y-1">
+                    Order Online
+                </button>
+                <button class="border-2 border-white text-white font-body font-bold text-label-bold px-8 py-4 rounded-full hover:bg-white/10 transition-all">
+                    Find a Store
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- Admin Panel Overlay -->
+<div class="admin-overlay fixed inset-0 bg-black/50 z-[80]" id="adminOverlay"></div>
+
+<!-- Admin Panel -->
+<div class="admin-panel fixed top-0 right-0 w-full md:w-[560px] h-full bg-surface z-[90] shadow-2xl overflow-y-auto" id="adminPanel">
+    <div class="sticky top-0 bg-surface border-b border-outline-variant/30 p-6 flex justify-between items-center z-10">
+        <div>
+            <h3 class="font-headline text-headline-md text-primary">Store Manager</h3>
+            <p class="font-body text-label-sm text-on-surface-variant mt-1">Add, edit, or remove store locations</p>
+        </div>
+        <button id="closeAdmin" class="text-on-surface-variant hover:text-primary p-1">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+
+    <!-- Add/Edit Store Form -->
+    <div class="p-6 border-b border-outline-variant/30">
+        <h4 class="font-body font-bold text-on-surface mb-4" id="formTitle">Add New Store</h4>
+        <form id="storeForm" class="space-y-4">
+            <input type="hidden" id="storeEditId" value="">
+            <div>
+                <label class="font-body text-label-sm text-on-surface-variant block mb-1">Store Name *</label>
+                <input type="text" id="storeName" required class="w-full bg-white border-2 border-outline-variant/50 rounded-xl py-3 px-4 font-body text-body-md text-on-surface focus:border-primary focus:ring-0 transition-colors" placeholder="e.g. Amul Parlour - MG Road">
+            </div>
+            <div>
+                <label class="font-body text-label-sm text-on-surface-variant block mb-1">Address *</label>
+                <input type="text" id="storeAddress" required class="w-full bg-white border-2 border-outline-variant/50 rounded-xl py-3 px-4 font-body text-body-md text-on-surface focus:border-primary focus:ring-0 transition-colors" placeholder="e.g. 45 MG Road, Bengaluru">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="font-body text-label-sm text-on-surface-variant block mb-1">City *</label>
+                    <input type="text" id="storeCity" required class="w-full bg-white border-2 border-outline-variant/50 rounded-xl py-3 px-4 font-body text-body-md text-on-surface focus:border-primary focus:ring-0 transition-colors" placeholder="e.g. Bengaluru">
+                </div>
+                <div>
+                    <label class="font-body text-label-sm text-on-surface-variant block mb-1">PIN Code</label>
+                    <input type="text" id="storePincode" class="w-full bg-white border-2 border-outline-variant/50 rounded-xl py-3 px-4 font-body text-body-md text-on-surface focus:border-primary focus:ring-0 transition-colors" placeholder="e.g. 560001">
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="font-body text-label-sm text-on-surface-variant block mb-1">Phone</label>
+                    <input type="tel" id="storePhone" class="w-full bg-white border-2 border-outline-variant/50 rounded-xl py-3 px-4 font-body text-body-md text-on-surface focus:border-primary focus:ring-0 transition-colors" placeholder="e.g. +91 98765 43210">
+                </div>
+                <div>
+                    <label class="font-body text-label-sm text-on-surface-variant block mb-1">Status</label>
+                    <select id="storeStatus" class="w-full bg-white border-2 border-outline-variant/50 rounded-xl py-3 px-4 font-body text-body-md text-on-surface focus:border-primary focus:ring-0 transition-colors">
+                        <option value="open">Open</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label class="font-body text-label-sm text-on-surface-variant block mb-1">Hours</label>
+                <input type="text" id="storeHours" class="w-full bg-white border-2 border-outline-variant/50 rounded-xl py-3 px-4 font-body text-body-md text-on-surface focus:border-primary focus:ring-0 transition-colors" placeholder="e.g. 9:00 AM - 10:00 PM">
+            </div>
+            <div class="flex gap-3 pt-2">
+                <button type="submit" class="bg-primary text-on-primary font-body font-bold text-label-bold px-6 py-3 rounded-full hover:bg-primary-container transition-all">
+                    <span id="formSubmitText">Add Store</span>
+                </button>
+                <button type="button" id="cancelEdit" class="border-2 border-outline-variant text-on-surface-variant font-body font-bold text-label-bold px-6 py-3 rounded-full hover:bg-surface-container transition-all hidden">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Store List in Admin -->
+    <div class="p-6">
+        <div class="flex justify-between items-center mb-4">
+            <h4 class="font-body font-bold text-on-surface">All Stores (<span id="adminStoreCount">0</span>)</h4>
+            <button id="resetStores" class="text-error font-body text-label-sm font-bold hover:underline">
+                Reset to Defaults
+            </button>
+        </div>
+        <div class="space-y-3" id="adminStoreList">
+            <!-- Admin store cards rendered here -->
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast bg-inverse-surface text-inverse-on-surface font-body text-body-md px-6 py-3 rounded-full shadow-lg" id="toast"></div>
+
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full py-section-gap-sm border-t border-outline-variant/30">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-gutter max-w-container-max mx-auto">
+        <div class="space-y-4 md:col-span-2">
+            <h4 class="font-headline text-headline-md text-primary">Amul Kool Rose</h4>
+            <p class="font-body text-body-md text-on-surface-variant max-w-sm">India's favourite rose-flavoured milk drink, made with the goodness of Amul milk and real rose extract.</p>
+            <p class="font-body text-label-sm text-on-surface-variant">&copy; 2026 Amul - The Taste of India. All rights reserved.</p>
+        </div>
+        <div class="flex flex-col space-y-3">
+            <h5 class="font-body font-bold text-label-bold text-on-surface mb-1">Quick Links</h5>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#products">Products</a>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#benefits">Benefits</a>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#nutrition">Nutrition</a>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#shop">Shop</a>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#where-to-buy">Where to Buy</a>
+        </div>
+        <div class="flex flex-col space-y-3">
+            <h5 class="font-body font-bold text-label-bold text-on-surface mb-1">Legal</h5>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+            <a class="font-body text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Us</a>
+        </div>
+    </div>
+</footer>
+
+<!-- reCAPTCHA container (invisible) -->
+<div id="recaptcha-container"></div>
+
+<!-- Login Modal Overlay -->
+<div class="login-overlay fixed inset-0 bg-black/50 z-[100]" id="loginOverlay" onclick="closeLoginModal()"></div>
+
+<!-- Login Modal -->
+<div class="login-modal fixed inset-0 z-[110] flex items-center justify-center p-4" id="loginModal">
+    <div class="bg-white rounded-[2rem] w-full max-w-md overflow-hidden soft-shadow" onclick="event.stopPropagation()">
+        <!-- Header -->
+        <div class="bg-primary p-6 text-center relative">
+            <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-white/80 hover:text-white">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <span class="material-symbols-outlined text-white text-[48px] mb-2">account_circle</span>
+            <h3 class="font-headline text-headline-md text-white" id="loginModalTitle">Welcome Back</h3>
+            <p class="font-body text-label-sm text-white/80 mt-1" id="loginModalSubtitle">Sign in with your phone number</p>
+        </div>
+
+        <div class="p-8">
+            <!-- Step 1: Phone Number -->
+            <div class="login-step active" id="loginStep1">
+                <label class="font-body text-label-sm text-on-surface-variant block mb-2">Phone Number</label>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="font-body font-bold text-on-surface bg-surface-container rounded-xl px-4 py-3.5 border-2 border-outline-variant/50">+91</span>
+                    <input type="tel" id="phoneInput" maxlength="10" placeholder="Enter 10-digit number"
+                        class="flex-1 bg-white border-2 border-outline-variant/50 rounded-xl py-3.5 px-4 font-body text-body-md text-on-surface focus:border-primary focus:ring-0 transition-colors"
+                        oninput="this.value=this.value.replace(/\D/g,'')">
+                </div>
+                <p class="font-body text-label-sm text-error mb-4 hidden" id="phoneError">Please enter a valid 10-digit phone number</p>
+                <button onclick="sendOtp()" class="w-full bg-primary text-on-primary font-body font-bold text-label-bold py-4 rounded-full hover:bg-primary-container transition-all" id="sendOtpBtn">
+                    Send OTP
+                </button>
+                <p class="text-center font-body text-label-sm text-on-surface-variant mt-4">
+                    We'll send a one-time password to verify your number
+                </p>
+            </div>
+
+            <!-- Step 2: OTP Verification -->
+            <div class="login-step" id="loginStep2">
+                <p class="font-body text-body-md text-on-surface-variant text-center mb-2">Enter the OTP sent to</p>
+                <p class="font-body font-bold text-on-surface text-center mb-4" id="otpPhoneDisplay">+91 98765 43210</p>
+                <div class="otp-inputs mb-4" id="otpInputs">
+                    <input type="tel" maxlength="1" class="otp-digit" oninput="handleOtpInput(this, 0)" onkeydown="handleOtpKeydown(event, 0)">
+                    <input type="tel" maxlength="1" class="otp-digit" oninput="handleOtpInput(this, 1)" onkeydown="handleOtpKeydown(event, 1)">
+                    <input type="tel" maxlength="1" class="otp-digit" oninput="handleOtpInput(this, 2)" onkeydown="handleOtpKeydown(event, 2)">
+                    <input type="tel" maxlength="1" class="otp-digit" oninput="handleOtpInput(this, 3)" onkeydown="handleOtpKeydown(event, 3)">
+                    <input type="tel" maxlength="1" class="otp-digit" oninput="handleOtpInput(this, 4)" onkeydown="handleOtpKeydown(event, 4)">
+                    <input type="tel" maxlength="1" class="otp-digit" oninput="handleOtpInput(this, 5)" onkeydown="handleOtpKeydown(event, 5)">
+                </div>
+                <p class="font-body text-label-sm text-error mb-4 hidden text-center" id="otpError">Incorrect OTP. Please try again.</p>
+                <button onclick="verifyOtp()" class="w-full bg-primary text-on-primary font-body font-bold text-label-bold py-4 rounded-full hover:bg-primary-container transition-all mb-3" id="verifyOtpBtn">
+                    Verify OTP
+                </button>
+                <div class="flex items-center justify-between">
+                    <button onclick="goToStep(1)" class="font-body text-label-sm text-primary hover:underline">
+                        <span class="material-symbols-outlined text-[14px] align-middle">arrow_back</span> Change number
+                    </button>
+                    <button onclick="resendOtp()" class="font-body text-label-sm text-primary hover:underline" id="resendBtn">
+                        Resend OTP
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 3: Profile (Name entry for new users) -->
+            <div class="login-step" id="loginStep3">
+                <div class="text-center mb-6">
+                    <div class="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                        <span class="material-symbols-outlined text-primary text-[40px]">person</span>
+                    </div>
+                    <p class="font-body text-body-md text-on-surface-variant">Almost there! Tell us your name</p>
+                </div>
+                <label class="font-body text-label-sm text-on-surface-variant block mb-2">Your Name</label>
+                <input type="text" id="nameInput" placeholder="Enter your name"
+                    class="w-full bg-white border-2 border-outline-variant/50 rounded-xl py-3.5 px-4 font-body text-body-md text-on-surface focus:border-primary focus:ring-0 transition-colors mb-4">
+                <p class="font-body text-label-sm text-error mb-4 hidden" id="nameError">Please enter your name</p>
+                <button onclick="saveProfile()" class="w-full bg-primary text-on-primary font-body font-bold text-label-bold py-4 rounded-full hover:bg-primary-container transition-all">
+                    Get Started
+                </button>
+            </div>
+
+            <!-- Step 4: Logged-in Profile View -->
+            <div class="login-step" id="loginStep4">
+                <div class="text-center mb-6">
+                    <div class="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-3">
+                        <span class="font-headline text-white text-[32px] font-bold" id="profileInitials">AK</span>
+                    </div>
+                    <h4 class="font-headline text-headline-md text-on-surface" id="profileName">Ayush Kumar</h4>
+                    <p class="font-body text-label-sm text-on-surface-variant" id="profilePhone">+91 98765 43210</p>
+                </div>
+                <div class="bg-surface-container rounded-2xl p-5 space-y-4 mb-6">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-[20px]">shopping_bag</span>
+                        <span class="font-body text-body-md text-on-surface" id="profileOrders">0 orders placed</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-[20px]">calendar_today</span>
+                        <span class="font-body text-body-md text-on-surface" id="profileJoined">Member since today</span>
+                    </div>
+                </div>
+                <button onclick="logout()" class="w-full border-2 border-error text-error font-body font-bold text-label-bold py-4 rounded-full hover:bg-error-container/30 transition-all">
+                    Logout
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Mobile menu
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileClose = document.getElementById('mobileClose');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileOverlay = document.getElementById('mobileOverlay');
+
+function openMenu() {
+    mobileMenu.classList.add('open');
+    mobileOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+    mobileMenu.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+mobileToggle.addEventListener('click', openMenu);
+mobileClose.addEventListener('click', closeMenu);
+mobileOverlay.addEventListener('click', closeMenu);
+
+mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 10) {
+        nav.classList.add('shadow-md', 'bg-surface/95');
+        nav.classList.remove('shadow-sm', 'bg-surface/80');
+    } else {
+        nav.classList.remove('shadow-md', 'bg-surface/95');
+        nav.classList.add('shadow-sm', 'bg-surface/80');
+    }
+});
+
+// Scroll reveal (supports .reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children)
+function reveal() {
+    const revealSelectors = '.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children';
+    document.querySelectorAll(revealSelectors).forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 60) {
+            el.classList.add('visible');
+        }
+    });
+}
+window.addEventListener('scroll', reveal);
+window.addEventListener('load', reveal);
+
+// Counter animation with pop effect
+function animateCounters() {
+    document.querySelectorAll('.counter-value').forEach(counter => {
+        const rect = counter.getBoundingClientRect();
+        if (rect.top < window.innerHeight && !counter.dataset.animated) {
+            counter.dataset.animated = 'true';
+            const target = parseInt(counter.dataset.target);
+            let current = 0;
+            const duration = 2000;
+            const step = target / (duration / 16);
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    counter.textContent = target;
+                    counter.classList.add('counter-pop');
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+    });
+}
+window.addEventListener('scroll', animateCounters);
+window.addEventListener('load', animateCounters);
+
+// Floating rose petals
+function createPetals() {
+    const container = document.getElementById('petalsContainer');
+    if (!container) return;
+    const petalColors = ['#f8d8db', '#f0b0b8', '#e88898', '#d06078', '#af204e'];
+    for (let i = 0; i < 12; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+        const size = Math.random() * 12 + 6;
+        petal.style.cssText = `
+            width: ${size}px; height: ${size}px;
+            background: ${petalColors[Math.floor(Math.random() * petalColors.length)]};
+            border-radius: 50% 0 50% 0;
+            left: ${Math.random() * 100}%;
+            bottom: -20px;
+            animation-duration: ${Math.random() * 8 + 10}s;
+            animation-delay: ${Math.random() * 10}s;
+        `;
+        container.appendChild(petal);
+    }
+}
+createPetals();
+
+// Button ripple effect
+document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.btn-ripple');
+    if (!btn) return;
+    const circle = document.createElement('span');
+    circle.className = 'ripple-circle';
+    const rect = btn.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    circle.style.width = circle.style.height = size + 'px';
+    circle.style.left = (e.clientX - rect.left - size / 2) + 'px';
+    circle.style.top = (e.clientY - rect.top - size / 2) + 'px';
+    btn.appendChild(circle);
+    circle.addEventListener('animationend', () => circle.remove());
+});
+
+// Tilt card effect on mouse move
+document.querySelectorAll('.tilt-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4;
+        const rotateY = ((x - centerX) / centerX) * 4;
+        card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+    });
+});
+
+// Parallax on hero bottle
+let ticking = false;
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        requestAnimationFrame(() => {
+            const heroImg = document.querySelector('.float-animation');
+            if (heroImg) {
+                const scrollY = window.scrollY;
+                heroImg.style.transform = `translateY(${scrollY * 0.08}px)`;
+            }
+            ticking = false;
+        });
+        ticking = true;
+    }
+});
+
+// Active nav link highlighting
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function updateActiveNav() {
+    const scrollY = window.scrollY + 150;
+    sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === '#' + id) {
+                if (scrollY >= top && scrollY < top + height) {
+                    link.classList.add('text-primary');
+                    link.classList.remove('text-on-surface-variant');
+                } else {
+                    link.classList.remove('text-primary');
+                    link.classList.add('text-on-surface-variant');
+                }
+            }
+        });
+    });
+}
+window.addEventListener('scroll', updateActiveNav);
+
+// =============================================
+// Store Database (localStorage)
+// =============================================
+
+const STORE_KEY = 'amul_kool_stores';
+
+const DEFAULT_STORES = [
+    { id: '1', name: 'Amul Parlour - Connaught Place', address: 'Block A, Connaught Place', city: 'New Delhi', pincode: '110001', phone: '+91 11 2341 5678', hours: '9:00 AM - 10:00 PM', status: 'open' },
+    { id: '2', name: 'Amul Parlour - Bandra', address: 'Hill Road, Bandra West', city: 'Mumbai', pincode: '400050', phone: '+91 22 2645 7890', hours: '8:00 AM - 11:00 PM', status: 'open' },
+    { id: '3', name: 'Amul Parlour - Koramangala', address: '80 Feet Road, Koramangala', city: 'Bengaluru', pincode: '560034', phone: '+91 80 4567 8901', hours: '9:00 AM - 10:30 PM', status: 'open' },
+    { id: '4', name: 'Amul Parlour - Salt Lake', address: 'Sector V, Salt Lake City', city: 'Kolkata', pincode: '700091', phone: '+91 33 2357 1234', hours: '8:30 AM - 9:30 PM', status: 'open' },
+    { id: '5', name: 'Amul Parlour - Jubilee Hills', address: 'Road No. 36, Jubilee Hills', city: 'Hyderabad', pincode: '500033', phone: '+91 40 2355 6789', hours: '9:00 AM - 10:00 PM', status: 'open' },
+    { id: '6', name: 'Amul Parlour - Ashram Road', address: 'Near Income Tax Circle, Ashram Road', city: 'Ahmedabad', pincode: '380009', phone: '+91 79 2658 3456', hours: '7:00 AM - 11:00 PM', status: 'open' },
+    { id: '7', name: 'Amul Parlour - Anna Nagar', address: '2nd Avenue, Anna Nagar', city: 'Chennai', pincode: '600040', phone: '+91 44 2618 9012', hours: '8:00 AM - 10:00 PM', status: 'open' },
+    { id: '8', name: 'Amul Parlour - Aundh', address: 'ITI Road, Aundh', city: 'Pune', pincode: '411007', phone: '+91 20 2589 0123', hours: '9:00 AM - 10:30 PM', status: 'open' },
+    { id: '9', name: 'Amul Parlour - Hazratganj', address: 'Hazratganj Main Road', city: 'Lucknow', pincode: '226001', phone: '+91 522 222 4567', hours: '8:00 AM - 9:00 PM', status: 'closed' },
+    { id: '10', name: 'Amul Parlour - C-Scheme', address: 'Near Panch Batti, C-Scheme', city: 'Jaipur', pincode: '302001', phone: '+91 141 237 8901', hours: '9:00 AM - 10:00 PM', status: 'open' },
+    { id: '11', name: 'Amul Parlour - Sector 17', address: 'Sector 17, Main Market', city: 'Chandigarh', pincode: '160017', phone: '+91 172 270 1234', hours: '9:30 AM - 9:30 PM', status: 'open' },
+    { id: '12', name: 'Amul Parlour - MG Road', address: 'MG Road, Near Brigade Road Junction', city: 'Bengaluru', pincode: '560001', phone: '+91 80 2558 5678', hours: '8:00 AM - 11:00 PM', status: 'open' }
+];
+
+function getStores() {
+    const data = localStorage.getItem(STORE_KEY);
+    if (!data) {
+        localStorage.setItem(STORE_KEY, JSON.stringify(DEFAULT_STORES));
+        return [...DEFAULT_STORES];
+    }
+    return JSON.parse(data);
+}
+
+function saveStores(stores) {
+    localStorage.setItem(STORE_KEY, JSON.stringify(stores));
+}
+
+function generateId() {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+}
+
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// Render store cards on the main page
+function renderStoreCards(filter) {
+    const stores = getStores();
+    const container = document.getElementById('storeResults');
+    const countEl = document.getElementById('storeCount');
+    const query = (filter || '').toLowerCase().trim();
+
+    const filtered = query
+        ? stores.filter(s =>
+            s.name.toLowerCase().includes(query) ||
+            s.city.toLowerCase().includes(query) ||
+            s.address.toLowerCase().includes(query) ||
+            (s.pincode && s.pincode.includes(query))
+          )
+        : stores;
+
+    if (filtered.length === 0) {
+        container.innerHTML = `
+            <div class="col-span-full text-center py-12">
+                <span class="material-symbols-outlined text-[48px] text-outline mb-2">search_off</span>
+                <p class="font-body text-body-md text-on-surface-variant">No stores found for "${query}"</p>
+                <p class="font-body text-label-sm text-on-surface-variant mt-1">Try a different city or pin code</p>
+            </div>`;
+        countEl.textContent = '';
+        return;
+    }
+
+    container.innerHTML = filtered.map(store => `
+        <div class="store-card bg-white rounded-2xl p-6 border border-outline-variant/20 hover:border-primary/30">
+            <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-primary mt-1">store</span>
+                <div class="flex-1">
+                    <h4 class="font-body font-bold text-on-surface">${store.name}</h4>
+                    <p class="font-body text-label-sm text-on-surface-variant mt-1">${store.address}, ${store.city}${store.pincode ? ' - ' + store.pincode : ''}</p>
+                    ${store.phone ? `<p class="font-body text-label-sm text-on-surface-variant mt-1"><span class="material-symbols-outlined text-[14px] align-middle">call</span> ${store.phone}</p>` : ''}
+                    ${store.hours ? `<p class="font-body text-label-sm text-on-surface-variant mt-1"><span class="material-symbols-outlined text-[14px] align-middle">schedule</span> ${store.hours}</p>` : ''}
+                    <p class="font-body text-label-sm mt-2 font-bold ${store.status === 'open' ? 'badge-open' : 'badge-closed'}">
+                        <span class="material-symbols-outlined text-[14px] align-middle">${store.status === 'open' ? 'check_circle' : 'cancel'}</span>
+                        ${store.status === 'open' ? 'Open Now' : 'Closed'}
+                    </p>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    countEl.textContent = query
+        ? `Showing ${filtered.length} of ${stores.length} stores`
+        : `${stores.length} stores across India`;
+}
+
+// Search functionality
+const searchInput = document.getElementById('storeSearch');
+const searchBtn = document.getElementById('searchBtn');
+
+searchBtn.addEventListener('click', () => renderStoreCards(searchInput.value));
+searchInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') renderStoreCards(searchInput.value);
+});
+searchInput.addEventListener('input', () => {
+    if (searchInput.value === '') renderStoreCards('');
+});
+
+// Admin panel
+const adminPanel = document.getElementById('adminPanel');
+const adminOverlay = document.getElementById('adminOverlay');
+const openAdminBtn = document.getElementById('openAdmin');
+const closeAdminBtn = document.getElementById('closeAdmin');
+const storeForm = document.getElementById('storeForm');
+const cancelEditBtn = document.getElementById('cancelEdit');
+const resetStoresBtn = document.getElementById('resetStores');
+
+function openAdminPanel() {
+    adminPanel.classList.add('open');
+    adminOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    renderAdminStoreList();
+}
+
+function closeAdminPanel() {
+    adminPanel.classList.remove('open');
+    adminOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+    resetForm();
+}
+
+openAdminBtn.addEventListener('click', openAdminPanel);
+closeAdminBtn.addEventListener('click', closeAdminPanel);
+adminOverlay.addEventListener('click', closeAdminPanel);
+
+function renderAdminStoreList() {
+    const stores = getStores();
+    const container = document.getElementById('adminStoreList');
+    document.getElementById('adminStoreCount').textContent = stores.length;
+
+    container.innerHTML = stores.map(store => `
+        <div class="bg-white rounded-xl p-4 border border-outline-variant/20 flex items-start justify-between gap-3">
+            <div class="flex-1 min-w-0">
+                <p class="font-body font-bold text-on-surface text-sm truncate">${store.name}</p>
+                <p class="font-body text-label-sm text-on-surface-variant truncate">${store.address}, ${store.city}</p>
+                <span class="inline-block font-body text-label-sm font-bold mt-1 ${store.status === 'open' ? 'badge-open' : 'badge-closed'}">${store.status === 'open' ? 'Open' : 'Closed'}</span>
+            </div>
+            <div class="flex gap-1 shrink-0">
+                <button onclick="editStore('${store.id}')" class="text-tertiary hover:bg-tertiary-fixed/30 p-1.5 rounded-lg transition-colors" title="Edit">
+                    <span class="material-symbols-outlined text-[20px]">edit</span>
+                </button>
+                <button onclick="deleteStore('${store.id}')" class="text-error hover:bg-error-container/50 p-1.5 rounded-lg transition-colors" title="Delete">
+                    <span class="material-symbols-outlined text-[20px]">delete</span>
+                </button>
+            </div>
+        </div>
+    `).join('');
+}
+
+function resetForm() {
+    storeForm.reset();
+    document.getElementById('storeEditId').value = '';
+    document.getElementById('formTitle').textContent = 'Add New Store';
+    document.getElementById('formSubmitText').textContent = 'Add Store';
+    cancelEditBtn.classList.add('hidden');
+}
+
+storeForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const stores = getStores();
+    const editId = document.getElementById('storeEditId').value;
+
+    const storeData = {
+        name: document.getElementById('storeName').value.trim(),
+        address: document.getElementById('storeAddress').value.trim(),
+        city: document.getElementById('storeCity').value.trim(),
+        pincode: document.getElementById('storePincode').value.trim(),
+        phone: document.getElementById('storePhone').value.trim(),
+        hours: document.getElementById('storeHours').value.trim(),
+        status: document.getElementById('storeStatus').value
+    };
+
+    if (editId) {
+        const idx = stores.findIndex(s => s.id === editId);
+        if (idx !== -1) {
+            stores[idx] = { ...stores[idx], ...storeData };
+            showToast('Store updated successfully');
+        }
+    } else {
+        storeData.id = generateId();
+        stores.push(storeData);
+        showToast('Store added successfully');
+    }
+
+    saveStores(stores);
+    resetForm();
+    renderAdminStoreList();
+    renderStoreCards(searchInput.value);
+});
+
+cancelEditBtn.addEventListener('click', resetForm);
+
+window.editStore = function(id) {
+    const stores = getStores();
+    const store = stores.find(s => s.id === id);
+    if (!store) return;
+
+    document.getElementById('storeEditId').value = store.id;
+    document.getElementById('storeName').value = store.name;
+    document.getElementById('storeAddress').value = store.address;
+    document.getElementById('storeCity').value = store.city;
+    document.getElementById('storePincode').value = store.pincode || '';
+    document.getElementById('storePhone').value = store.phone || '';
+    document.getElementById('storeHours').value = store.hours || '';
+    document.getElementById('storeStatus').value = store.status || 'open';
+
+    document.getElementById('formTitle').textContent = 'Edit Store';
+    document.getElementById('formSubmitText').textContent = 'Save Changes';
+    cancelEditBtn.classList.remove('hidden');
+    adminPanel.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+window.deleteStore = function(id) {
+    if (!confirm('Are you sure you want to delete this store?')) return;
+    const stores = getStores().filter(s => s.id !== id);
+    saveStores(stores);
+    renderAdminStoreList();
+    renderStoreCards(searchInput.value);
+    showToast('Store deleted');
+};
+
+resetStoresBtn.addEventListener('click', () => {
+    if (!confirm('Reset all stores to defaults? Your custom stores will be lost.')) return;
+    localStorage.setItem(STORE_KEY, JSON.stringify(DEFAULT_STORES));
+    renderAdminStoreList();
+    renderStoreCards(searchInput.value);
+    showToast('Stores reset to defaults');
+});
+
+// Quantity & Buy Now for Shop section
+window.changeQty = function(btn, delta) {
+    const container = btn.closest('.flex');
+    const valEl = container.querySelector('.qty-val');
+    let qty = parseInt(valEl.textContent) + delta;
+    if (qty < 1) qty = 1;
+    if (qty > 99) qty = 99;
+    valEl.textContent = qty;
+};
+
+window.buyNow = function(productName, unitPrice, btn) {
+    const card = btn.closest('.product-card');
+    const qty = parseInt(card.querySelector('.qty-val').textContent);
+    const total = qty * unitPrice;
+    showToast(`Added ${qty}x ${productName} — ₹${total} to cart`);
+};
+
+// ==================== Firebase Phone Auth ====================
+const firebaseConfig = {
+    apiKey: "AIzaSyAiUdr9SjTLcfvE941I1CY8ixND7QF9ZlE",
+    authDomain: "amoolcol-authenticaton.firebaseapp.com",
+    projectId: "amoolcol-authenticaton",
+    storageBucket: "amoolcol-authenticaton.firebasestorage.app",
+    messagingSenderId: "80940982749",
+    appId: "1:80940982749:web:a8744595e479f01a47d634",
+    measurementId: "G-3DPRVTLS7P"
+};
+
+firebase.initializeApp(firebaseConfig);
+const firebaseAuth = firebase.auth();
+
+const AUTH_KEY = 'amulkool_auth';
+const USERS_KEY = 'amulkool_users';
+let currentPhone = '';
+let confirmationResult = null;
+let recaptchaVerifier = null;
+
+function getUsers() {
+    return JSON.parse(localStorage.getItem(USERS_KEY) || '[]');
+}
+function saveUsers(users) {
+    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+}
+function getLocalAuth() {
+    return JSON.parse(localStorage.getItem(AUTH_KEY) || 'null');
+}
+function setLocalAuth(user) {
+    localStorage.setItem(AUTH_KEY, JSON.stringify(user));
+}
+function clearLocalAuth() {
+    localStorage.removeItem(AUTH_KEY);
+}
+
+function formatPhone(phone) {
+    return `+91 ${phone.slice(0,5)} ${phone.slice(5)}`;
+}
+
+function getInitials(name) {
+    return name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+}
+
+function setupRecaptcha() {
+    if (recaptchaVerifier) {
+        recaptchaVerifier.clear();
+        document.getElementById('recaptcha-container').innerHTML = '';
+    }
+    recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+        size: 'invisible',
+        callback: () => {}
+    });
+}
+
+function openLoginModal() {
+    const auth = getLocalAuth();
+    if (auth) {
+        showProfileStep(auth);
+    } else {
+        goToStep(1);
+    }
+    document.getElementById('loginOverlay').classList.add('open');
+    document.getElementById('loginModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLoginModal() {
+    document.getElementById('loginOverlay').classList.remove('open');
+    document.getElementById('loginModal').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+function goToStep(step) {
+    document.querySelectorAll('.login-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('loginStep' + step).classList.add('active');
+
+    if (step === 1) {
+        document.getElementById('loginModalTitle').textContent = 'Welcome Back';
+        document.getElementById('loginModalSubtitle').textContent = 'Sign in with your phone number';
+        document.getElementById('phoneError').classList.add('hidden');
+    } else if (step === 2) {
+        document.getElementById('loginModalTitle').textContent = 'Verify OTP';
+        document.getElementById('loginModalSubtitle').textContent = 'Check your phone for the code';
+        document.getElementById('otpError').classList.add('hidden');
+        clearOtpInputs();
+        setTimeout(() => document.querySelector('.otp-digit').focus(), 100);
+    } else if (step === 3) {
+        document.getElementById('loginModalTitle').textContent = 'Complete Profile';
+        document.getElementById('loginModalSubtitle').textContent = 'One last step';
+        document.getElementById('nameError').classList.add('hidden');
+    }
+}
+
+function showProfileStep(user) {
+    goToStep(4);
+    document.getElementById('loginModalTitle').textContent = 'Your Profile';
+    document.getElementById('loginModalSubtitle').textContent = 'Manage your account';
+    document.getElementById('profileInitials').textContent = getInitials(user.name);
+    document.getElementById('profileName').textContent = user.name;
+    document.getElementById('profilePhone').textContent = formatPhone(user.phone);
+    document.getElementById('profileOrders').textContent = `${user.orders || 0} orders placed`;
+    const joined = new Date(user.joinedAt);
+    document.getElementById('profileJoined').textContent = `Member since ${joined.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}`;
+}
+
+function setButtonLoading(btnId, loading, text) {
+    const btn = document.getElementById(btnId);
+    btn.disabled = loading;
+    btn.textContent = loading ? 'Please wait...' : text;
+    btn.style.opacity = loading ? '0.7' : '1';
+}
+
+window.sendOtp = async function() {
+    const phone = document.getElementById('phoneInput').value.trim();
+    if (phone.length !== 10) {
+        document.getElementById('phoneError').classList.remove('hidden');
+        return;
+    }
+    document.getElementById('phoneError').classList.add('hidden');
+    currentPhone = phone;
+
+    setButtonLoading('sendOtpBtn', true, 'Send OTP');
+
+    try {
+        setupRecaptcha();
+        const phoneNumber = '+91' + phone;
+        confirmationResult = await firebaseAuth.signInWithPhoneNumber(phoneNumber, recaptchaVerifier);
+        document.getElementById('otpPhoneDisplay').textContent = formatPhone(phone);
+        goToStep(2);
+        showToast(`OTP sent to ${formatPhone(phone)}`);
+    } catch (error) {
+        console.error('Send OTP error:', error);
+        let msg = 'Failed to send OTP. Please try again.';
+        if (error.code === 'auth/too-many-requests') {
+            msg = 'Too many attempts. Please try again later.';
+        } else if (error.code === 'auth/invalid-phone-number') {
+            msg = 'Invalid phone number. Please check and try again.';
+        } else if (error.code === 'auth/quota-exceeded') {
+            msg = 'SMS quota exceeded. Please try again tomorrow.';
+        }
+        document.getElementById('phoneError').textContent = msg;
+        document.getElementById('phoneError').classList.remove('hidden');
+        setupRecaptcha();
+    } finally {
+        setButtonLoading('sendOtpBtn', false, 'Send OTP');
+    }
+};
+
+window.resendOtp = async function() {
+    setButtonLoading('verifyOtpBtn', true, 'Verify OTP');
+    try {
+        setupRecaptcha();
+        const phoneNumber = '+91' + currentPhone;
+        confirmationResult = await firebaseAuth.signInWithPhoneNumber(phoneNumber, recaptchaVerifier);
+        clearOtpInputs();
+        document.querySelector('.otp-digit').focus();
+        showToast('New OTP sent');
+    } catch (error) {
+        console.error('Resend OTP error:', error);
+        showToast('Failed to resend OTP. Try again.');
+        setupRecaptcha();
+    } finally {
+        setButtonLoading('verifyOtpBtn', false, 'Verify OTP');
+    }
+};
+
+function clearOtpInputs() {
+    document.querySelectorAll('.otp-digit').forEach(i => i.value = '');
+}
+
+function getOtpValue() {
+    return Array.from(document.querySelectorAll('.otp-digit')).map(i => i.value).join('');
+}
+
+window.handleOtpInput = function(el, idx) {
+    el.value = el.value.replace(/\D/g, '');
+    if (el.value && idx < 5) {
+        document.querySelectorAll('.otp-digit')[idx + 1].focus();
+    }
+};
+
+window.handleOtpKeydown = function(e, idx) {
+    if (e.key === 'Backspace' && !e.target.value && idx > 0) {
+        document.querySelectorAll('.otp-digit')[idx - 1].focus();
+    }
+};
+
+window.verifyOtp = async function() {
+    const entered = getOtpValue();
+    if (entered.length !== 6) {
+        document.getElementById('otpError').textContent = 'Please enter all 6 digits';
+        document.getElementById('otpError').classList.remove('hidden');
+        return;
+    }
+
+    setButtonLoading('verifyOtpBtn', true, 'Verify OTP');
+
+    try {
+        await confirmationResult.confirm(entered);
+        document.getElementById('otpError').classList.add('hidden');
+
+        const users = getUsers();
+        const existing = users.find(u => u.phone === currentPhone);
+        if (existing) {
+            setLocalAuth(existing);
+            updateNavLoginState(existing);
+            showProfileStep(existing);
+            showToast(`Welcome back, ${existing.name}!`);
+        } else {
+            goToStep(3);
+        }
+    } catch (error) {
+        console.error('Verify OTP error:', error);
+        let msg = 'Incorrect OTP. Please try again.';
+        if (error.code === 'auth/code-expired') {
+            msg = 'OTP expired. Please request a new one.';
+        }
+        document.getElementById('otpError').textContent = msg;
+        document.getElementById('otpError').classList.remove('hidden');
+    } finally {
+        setButtonLoading('verifyOtpBtn', false, 'Verify OTP');
+    }
+};
+
+window.saveProfile = function() {
+    const name = document.getElementById('nameInput').value.trim();
+    if (!name) {
+        document.getElementById('nameError').classList.remove('hidden');
+        return;
+    }
+    document.getElementById('nameError').classList.add('hidden');
+
+    const user = {
+        phone: currentPhone,
+        name: name,
+        orders: 0,
+        joinedAt: new Date().toISOString()
+    };
+
+    const users = getUsers();
+    users.push(user);
+    saveUsers(users);
+    setLocalAuth(user);
+    updateNavLoginState(user);
+    showProfileStep(user);
+    showToast(`Welcome, ${name}!`);
+};
+
+window.logout = function() {
+    firebaseAuth.signOut();
+    clearLocalAuth();
+    updateNavLoginState(null);
+    closeLoginModal();
+    showToast('Logged out successfully');
+};
+
+function updateNavLoginState(user) {
+    const navText = document.getElementById('navLoginText');
+    const mobileText = document.getElementById('mobileLoginText');
+    const navIcon = document.querySelector('#navLoginBtn .material-symbols-outlined');
+    const mobileIcon = document.querySelector('#mobileLoginBtn .material-symbols-outlined');
+
+    if (user) {
+        navText.textContent = user.name.split(' ')[0];
+        mobileText.textContent = user.name.split(' ')[0];
+        navIcon.textContent = 'account_circle';
+        mobileIcon.textContent = 'account_circle';
+    } else {
+        navText.textContent = 'Login';
+        mobileText.textContent = 'Login';
+        navIcon.textContent = 'person';
+        mobileIcon.textContent = 'person';
+    }
+}
+
+// Restore login state on page load
+(function initAuth() {
+    const auth = getLocalAuth();
+    if (auth) updateNavLoginState(auth);
+})();
+
+// Also increment order count when Buy Now is clicked (for logged-in users)
+const originalBuyNow = window.buyNow;
+window.buyNow = function(productName, unitPrice, btn) {
+    const auth = getLocalAuth();
+    if (auth) {
+        auth.orders = (auth.orders || 0) + 1;
+        setLocalAuth(auth);
+        const users = getUsers();
+        const idx = users.findIndex(u => u.phone === auth.phone);
+        if (idx !== -1) { users[idx] = auth; saveUsers(users); }
+    }
+    originalBuyNow(productName, unitPrice, btn);
+};
+
+// Initial render
+renderStoreCards('');
+</script>
+</body>
+</html>
